@@ -1,7 +1,9 @@
-=== Plugin Name ===
+=== RunMyBusiness Sync ===
 Contributors: (runmybusiness)
+Stable tag: trunk
 Tags: realestate, properties, listings, runmybusiness
 Requires at least: 3.0.1
+Tested up to: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,12 +14,7 @@ This plugin allows you to display your RunMyBusiness property listings on your o
 This plugin allows you to display your RunMyBusiness property listings on your own wordpress based website!
 
 == Installation ==
-
-== Frequently Asked Questions ==
-
-== Screenshots ==
-
-== Changelog ==
+Install
 
 = 0.1 =
 * First plugin version
