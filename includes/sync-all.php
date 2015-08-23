@@ -1,0 +1,25 @@
+<?php
+
+// Register new action to run on cron execution
+add_action('runmybusiness_update_content', 'runmybusiness_do_update_content');
+function runmybusiness_do_update_content() {
+	global $wpdb;
+	global $user_ID;
+	$runmybusiness_options = get_option('runmybusiness_options');
+
+    $context = stream_context_create(array(
+        'http' => array(
+            'header'  => "Authorization: Basic " . base64_encode($runmybusiness_options['runmybusiness_username'] . ':' . $runmybusiness_options['runmybusiness_password'])
+        )
+    ));
+
+	$runmybusiness_listing_url = isset($runmybusiness_options['runmybusiness_listing_url']) ? $runmybusiness_options['runmybusiness_listing_url'] : '';
+	if ($runmybusiness_listing_url) {
+		require_once plugin_dir_path( __FILE__ ) . '/sync-listings.php';
+	}
+
+    $runmybusiness_people_url = isset($runmybusiness_options['runmybusiness_people_url']) ? $runmybusiness_options['runmybusiness_people_url'] : '';
+	if ($runmybusiness_people_url) {
+        require_once plugin_dir_path( __FILE__ ) . '/sync-people.php';
+	}
+}

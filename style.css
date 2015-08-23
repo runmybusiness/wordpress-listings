@@ -1,0 +1,70 @@
+
+.map {
+background: #ddd;
+height: 300px;
+margin: 25px auto 20px;
+clear: both;
+border-radius: 25px;
+border: 1px solid #333;
+width: 90%;
+}
+
+
+.single-map {
+background: #eee;
+height: 150px;
+margin: 0px auto 20px;
+clear: both;
+border-radius: 25px;
+border: 1px solid #ddd;
+width: 100%;
+}
+
+.listings {
+	width: 90%;
+	margin: 15px auto 0;
+}
+
+.listing-item {
+	display: block;
+	width: 100%;
+	clear: both;
+}
+
+.screen-reader-text {
+	display: none;
+}
+
+.detail-button {
+	background-color: #830031;
+    border: none;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 16px;
+    width: auto;
+    margin-top: 22px;
+    display: inline-block;
+}
+
+.detail-button:hover {
+    background-color: #00256c;
+    color: #fff;
+    text-decoration: none;
+}
+
+.tos-caption {
+	display: none;
+}
+
+.secondary-images li {
+	display: inline;
+	list-style-type: none;
+}
+
+.secondary-images li img {
+	margin: 10px;
+	border: 1px solid #ddd;
+	padding: 4px;
+}
