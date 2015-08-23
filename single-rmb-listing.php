@@ -9,32 +9,28 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
-			$runmybusiness_data = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
-			$img = array_get($runmybusiness_data, 'property.data.primaryPhoto.data.sizes.250_sq');
-			$secondaryImages = [];
+        // Start the loop.
+        while (have_posts()) : the_post();
+            $runmybusiness_data = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
+            $img = array_get($runmybusiness_data, 'property.data.primaryPhoto.data.sizes.250_sq');
+            $secondaryImages = [];
 
-			foreach(array_get($runmybusiness_data, 'property.data.photos.data', []) as $photo)
-			{
-				if( ! $photo['primary'])
-				{
-					$secondaryImages[$photo['id']] = $photo;
-				}
-			}
+            foreach (array_get($runmybusiness_data, 'property.data.photos.data', []) as $photo) {
+                if (!$photo['primary']) {
+                    $secondaryImages[$photo['id']] = $photo;
+                }
+            }
 
-			$overview = '';
-			foreach (array_get($runmybusiness_data, 'fields.data', []) as $k)
-			{
-				if (isset($k['field']['legacy_id']) && $k['field']['legacy_id'] == 'overview')
-				{
-					$overview = $k['value'];
-				}
-			}
-		?>
+            $overview = '';
+            foreach (array_get($runmybusiness_data, 'fields.data', []) as $k) {
+                if (isset($k['field']['legacy_id']) && $k['field']['legacy_id'] == 'overview') {
+                    $overview = $k['value'];
+                }
+            }
+        ?>
 			<h2 class="run-my-business-title"><?php the_title(); ?></h2>
 			<div style="float: left; width: 22%; margin-right: 3%;">
-				<?php if(!empty($img)): ?>
+				<?php if (!empty($img)): ?>
 				<a href="<?php echo array_get($runmybusiness_data, 'property.data.primaryPhoto.data.sizes.1200'); ?>" rel="lightbox">
 					<img class="run-my-business-photo" src="<?php echo array_get($runmybusiness_data, 'property.data.primaryPhoto.data.sizes.250_sq'); ?>" alt="<?php the_title(); ?>" class="aligncenter"/>
 				</a>
@@ -47,7 +43,7 @@ get_header(); ?>
 			</div>
 			<div style="float: right; width: 75%">
 
-			<?php if(!empty(array_get(getFieldArray($runmybusiness_data['property']['data'], 'address'), 'payload.geo'))): ?>
+			<?php if (!empty(array_get(getFieldArray($runmybusiness_data['property']['data'], 'address'), 'payload.geo'))): ?>
 			<div class="single-map" id="single-map"></div>
 			<?php endif; ?>
 
@@ -63,9 +59,9 @@ get_header(); ?>
 				<tr><td><strong>Salient Points: </strong></td><td><?php echo getField($runmybusiness_data, 'salient_points'); ?></td></tr>
 			</table>
 
-			<?php if(!empty($secondaryImages)): ?>
+			<?php if (!empty($secondaryImages)): ?>
 			<ul class="secondary-images">
-				<?php foreach($secondaryImages as $image): ?>
+				<?php foreach ($secondaryImages as $image): ?>
 				<li>
 					<a href="<?php echo $image['sizes']['1200']; ?>" rel="lightbox">
 						<img src="<?php echo $image['sizes']['120_sq']; ?>" title="<?php echo $image['description']; ?>">
@@ -77,7 +73,7 @@ get_header(); ?>
 
 			<?php echo do_shortcode('[shareaholic app="share_buttons" id="19233840”]'); ?>
 
-			<?php if(!empty(array_get(getFieldArray($runmybusiness_data['property']['data'], 'address'), 'payload.geo'))): ?>
+			<?php if (!empty(array_get(getFieldArray($runmybusiness_data['property']['data'], 'address'), 'payload.geo'))): ?>
 			<script>
 
 				var map;
@@ -109,20 +105,20 @@ get_header(); ?>
 			<?php endif; ?>
 
 		<?php
-			// Previous/next post navigation.
-			the_post_navigation( array(
-				'prev_text' => '<span class="meta-nav-prev" aria-hidden="true">' . __( '', 'twentyfifteen' ) . '</span> ' .
-					'<span style="float: left; padding: 20px;"><span class="screen-reader-text" style="float: left">' . __( 'Previous Listing:', 'twentyfifteen' ) . '</span></span> ' .
-					'<span class="post-title">Previous Listing: %title</span>',
+            // Previous/next post navigation.
+            the_post_navigation([
+                'prev_text' => '<span class="meta-nav-prev" aria-hidden="true">'.__('', 'twentyfifteen').'</span> '.
+                    '<span style="float: left; padding: 20px;"><span class="screen-reader-text" style="float: left">'.__('Previous Listing:', 'twentyfifteen').'</span></span> '.
+                    '<span class="post-title">Previous Listing: %title</span>',
 
-				'next_text' => '<span class="meta-nav-next" aria-hidden="true">' . __( '', 'twentyfifteen' ) . '</span> ' .
-					'<span style="float: right; padding: 20px;"><span class="screen-reader-text">' . __( 'Next Listing:', 'twentyfifteen' ) . '</span> ' .
-					'<span class="post-title">Next Listing: %title</span></span>',
-			) );
+                'next_text' => '<span class="meta-nav-next" aria-hidden="true">'.__('', 'twentyfifteen').'</span> '.
+                    '<span style="float: right; padding: 20px;"><span class="screen-reader-text">'.__('Next Listing:', 'twentyfifteen').'</span> '.
+                    '<span class="post-title">Next Listing: %title</span></span>',
+            ]);
 
-		// End the loop.
-		endwhile;
-		?>
+        // End the loop.
+        endwhile;
+        ?>
 
 		</main><!-- .site-main -->
 	</div></div><!-- .content-area -->

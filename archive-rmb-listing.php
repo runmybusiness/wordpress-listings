@@ -2,8 +2,7 @@
 
 include 'functions.php';
 
-
-/**
+/*
  * The template for displaying archive pages
  *
  * Used to display archive-type pages if nothing more specific matches a query.
@@ -79,26 +78,26 @@ get_header(); ?>
 
 			<div class="listings">
 
-		<?php if ( have_posts() ) : ?>
+		<?php if (have_posts()) : ?>
 
 			<?php
-			// Start the Loop.
-			while ( have_posts() ) : the_post();
-				global $post;
-				$rmb_post_custom = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
+            // Start the Loop.
+            while (have_posts()) : the_post();
+                global $post;
+                $rmb_post_custom = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
 
-				$img = array_get($rmb_post_custom, 'property.data.primaryPhoto.data.sizes.250');
+                $img = array_get($rmb_post_custom, 'property.data.primaryPhoto.data.sizes.250');
 
-				$overview = '';
-				foreach (array_get($rmb_post_custom, 'fields.data', array()) as $k) {
-					if (isset($k->field->legacy_id) && $k->field->legacy_id == 'overview') {
-						$overview = $k->value;
-					}
-				}
+                $overview = '';
+                foreach (array_get($rmb_post_custom, 'fields.data', []) as $k) {
+                    if (isset($k->field->legacy_id) && $k->field->legacy_id == 'overview') {
+                        $overview = $k->value;
+                    }
+                }
 
-			?>
+            ?>
 
-			<div style="margin: 0 auto 0; width: 100%; padding: 20px; clear: both;" class="listing-item <?php if(array_get($rmb_post_custom, 'featured', false)): ?>listing-item-featured<?php endif; ?>">
+			<div style="margin: 0 auto 0; width: 100%; padding: 20px; clear: both;" class="listing-item <?php if (array_get($rmb_post_custom, 'featured', false)): ?>listing-item-featured<?php endif; ?>">
 
 				<a href="<?php echo get_permalink(); ?>">
 					<img class="run-my-business-photo" src="<?php echo $img; ?>" alt="<?php the_title(); ?>" />
@@ -122,15 +121,15 @@ get_header(); ?>
 
 			<?php
 
-			// End the loop.
-			endwhile;
+            // End the loop.
+            endwhile;
 
-		// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'content', 'none' );
+        // If no content, include the "No posts found" template.
+        else :
+            get_template_part('content', 'none');
 
-		endif;
-		?>
+        endif;
+        ?>
 
 		</main><!-- .site-main -->
 	</section><!-- .content-area -->
