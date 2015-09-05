@@ -42,7 +42,7 @@ function getFieldArray($dataArray, $field_name, $fallback = null)
     return $fallback;
 }
 
-function array_get_from_field_array(array $dataArray, $field_name, $key, $default)
+function array_get_from_field_array(array $dataArray, $field_name, $key, $default = null)
 {
     $array = getFieldArray($dataArray, $field_name);
     return array_get($array, $key, $default);

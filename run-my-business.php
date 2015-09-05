@@ -1,11 +1,11 @@
 <?php
 
-/**
- * Plugin Name: RunMyBusiness
- * Plugin URI:  https://wordpress.org/plugins/runmybusiness-listings/
- * Version:     1.0.0
- * Description: This plugin imports data from RunMyBusiness.
- */
+/*
+Plugin Name: RunMyBusiness
+Plugin URI: https://wordpress.org/plugins/runmybusiness-listings/
+Version: 1.0.8
+Description: This plugin imports data from RunMyBusiness.
+*/
 
 // Add custom post types
 add_action('init', 'create_post_types');
