@@ -31,7 +31,7 @@ function getField(array $dataArray, $field_name, $fallback = null)
     return $fallback;
 }
 
-function gearray $dataArray, $field_name, $fallback = null)
+function getFieldArray($dataArray, $field_name, $fallback = null)
 {
     foreach ($dataArray['fields']['data'] as $row) {
         if ($row['field']['legacy_id'] == $field_name) {
@@ -44,6 +44,6 @@ function gearray $dataArray, $field_name, $fallback = null)
 
 function array_get_from_field_array(array $dataArray, $field_name, $key, $default)
 {
-    $array = ge$dataArray, $field_name);
+    $array = getFieldArray($dataArray, $field_name);
     return array_get($array, $key, $default);
 }
