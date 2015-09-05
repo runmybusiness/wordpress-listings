@@ -3,7 +3,7 @@
 /**
  * Plugin Name: RunMyBusiness
  * Description: This plugin imports data from RunMyBusiness.
- * Version: 1.0.0.
+ * Version: trunk
  */
 
 // Add custom post types
