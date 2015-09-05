@@ -104,7 +104,7 @@ get_header(); ?>
 				</a>
 <a href="<?php echo get_permalink(); ?>">
 					<h2 class="run-my-business-title"><?php the_title(); ?>, 
-						<?php echo array_get(getFieldArray($rmb_post_custom['property']['data'], 'address'), 'payload.address.normalized.city.long'); ?>, <?php echo array_get(getFieldArray($rmb_post_custom['property']['data'], 'address'), 'payload.address.normalized.state.short'); ?>
+						<?php echo array_get_from_field_array($rmb_post_custom['property']['data'], 'address', 'payload.address.normalized.city.long'); ?>, <?php echo array_get_from_field_array($rmb_post_custom['property']['data'], 'address', 'payload.address.normalized.state.short'); ?>
 					</h2>
 				</a>
 				<ul class="run-my-business-details">

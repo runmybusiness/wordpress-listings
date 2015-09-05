@@ -43,7 +43,7 @@ get_header(); ?>
 			</div>
 			<div style="float: right; width: 75%">
 
-			<?php if (!empty(array_get(getFieldArray($runmybusiness_data['property']['data'], 'address'), 'payload.geo'))): ?>
+			<?php if (array_get_from_field_array($runmybusiness_data['property']['data'], 'address', 'payload.geo')): ?>
 			<div class="single-map" id="single-map"></div>
 			<?php endif; ?>
 
@@ -73,13 +73,13 @@ get_header(); ?>
 
 			<?php echo do_shortcode('[shareaholic app="share_buttons" id="19233840”]'); ?>
 
-			<?php if (!empty(array_get(getFieldArray($runmybusiness_data['property']['data'], 'address'), 'payload.geo'))): ?>
+			<?php if (array_get_from_field_array($runmybusiness_data['property']['data'], 'address', 'payload.geo')): ?>
 			<script>
 
 				var map;
 				function initMap() {
 				  map = new google.maps.Map(document.getElementById('single-map'), {
-				    center: {lat: <?php echo array_get(getFieldArray($runmybusiness_data['property']['data'], 'address'), 'payload.geo.lat') ?>, lng: <?php echo array_get(getFieldArray($runmybusiness_data['property']['data'], 'address'), 'payload.geo.lng') ?>},
+				    center: {lat: <?php echo array_get_from_field_array($runmybusiness_data['property']['data'], 'address', 'payload.geo.lat') ?>, lng: <?php echo array_get_from_field_array($runmybusiness_data['property']['data'], 'address', 'payload.geo.lng') ?>},
 				    zoom: 13
 				  });
 
@@ -87,7 +87,7 @@ get_header(); ?>
 				    map: map,
 				    draggable: false,
 				    animation: google.maps.Animation.DROP,
-				    position: {lat: <?php echo array_get(getFieldArray($runmybusiness_data['property']['data'], 'address'), 'payload.geo.lat') ?>, lng: <?php echo array_get(getFieldArray($runmybusiness_data['property']['data'], 'address'), 'payload.geo.lng') ?>}
+				    position: {lat: <?php echo array_get_from_field_array($runmybusiness_data['property']['data'], 'address', 'payload.geo.lat') ?>, lng: <?php echo array_get_from_field_array($runmybusiness_data['property']['data'], 'address', 'payload.geo.lng') ?>}
 				  });
 				  marker.addListener('click', toggleBounce);
 				}
