@@ -1,4 +1,4 @@
-=== RunMyBusiness Sync ===
+=== RunMyBusiness ===
 Contributors: (runmybusiness)
 Stable tag: trunk
 Tags: realestate, properties, listings, runmybusiness
@@ -14,7 +14,10 @@ This plugin allows you to display your RunMyBusiness property listings on your o
 This plugin allows you to display your RunMyBusiness property listings on your own wordpress based website!
 
 == Installation ==
-Install
+ - Install the plugin
+ - Set your API Keys
+ - Set your listings url
+ - Set your team members url
 
 = 0.1 =
 * First plugin version
