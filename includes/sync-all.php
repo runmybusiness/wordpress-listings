@@ -24,7 +24,7 @@ function runmybusiness_do_update_content()
         require_once plugin_dir_path(__FILE__) . '/sync-people.php';
     }
 
-    $hooks_path = get_template_directory() . 'runmybusiness_hooks.php';
+    $hooks_path = get_template_directory() . '/runmybusiness_hooks.php';
     if (file_exists($hooks_path)) {
         include($hooks_path);
 
