@@ -10,17 +10,24 @@ function runmybusiness_do_update_content()
 
     $context = stream_context_create([
         'http' => [
-            'header'  => 'Authorization: Basic '.base64_encode($runmybusiness_options['runmybusiness_username'].':'.$runmybusiness_options['runmybusiness_password']),
+            'header' => 'Authorization: Basic ' . base64_encode($runmybusiness_options['runmybusiness_username'] . ':' . $runmybusiness_options['runmybusiness_password']),
         ],
     ]);
 
     $runmybusiness_listing_url = isset($runmybusiness_options['runmybusiness_listing_url']) ? $runmybusiness_options['runmybusiness_listing_url'] : '';
     if ($runmybusiness_listing_url) {
-        require_once plugin_dir_path(__FILE__).'/sync-listings.php';
+        require_once plugin_dir_path(__FILE__) . '/sync-listings.php';
     }
 
     $runmybusiness_people_url = isset($runmybusiness_options['runmybusiness_people_url']) ? $runmybusiness_options['runmybusiness_people_url'] : '';
     if ($runmybusiness_people_url) {
-        require_once plugin_dir_path(__FILE__).'/sync-people.php';
+        require_once plugin_dir_path(__FILE__) . '/sync-people.php';
+    }
+
+    $hooks_path = get_template_directory() . 'runmybusiness_hooks.php';
+    if (file_exists($hooks_path)) {
+        include($hooks_path);
+
+        rmb_post_sync_hook();
     }
 }
