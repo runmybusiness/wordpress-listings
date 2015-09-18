@@ -10,7 +10,7 @@ if (!empty($runmybusiness_data->data)) {
         $posts_runmybusiness[$p['post_id']] = $p['meta_value'];
     }
     $runmybusiness_ids = [];
-    foreach ($runmybusiness_data->data->employees->data as $item) {
+    foreach ($runmybusiness_data->employees->data as $item) {
         $runmybusiness_ids[] = $item->id;
         // Check if post already exists and update it
         $querystr = "SELECT `post_id` FROM $wpdb->postmeta WHERE `meta_key` = 'runmybusiness_person_id' AND `meta_value` = '$item->id'";
