@@ -3,9 +3,11 @@
 /*
 Plugin Name: RunMyBusiness
 Plugin URI: https://wordpress.org/plugins/runmybusiness-listings/
-Version: 1.0.14
+Version: 1.0.15
 Description: This plugin imports data from RunMyBusiness.
 */
+
+include('functions.php');
 
 // Add custom post types
 add_action('init', 'create_post_types');
