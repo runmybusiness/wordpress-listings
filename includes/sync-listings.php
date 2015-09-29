@@ -19,7 +19,7 @@ if ( ! empty($runmybusiness_data->data)) {
         if ($post) {
 
             $update_post = [
-                'ID'           => $post->ID,
+                'ID'           => $post->post_id,
                 'post_title'   => $item->name,
                 'post_content' => $item->overview,
             ];
@@ -27,24 +27,24 @@ if ( ! empty($runmybusiness_data->data)) {
             wp_update_post($update_post);
 
             if ( ! empty($address)) {
-                update_post_meta($post->ID, 'location', $item->property->address->geolookup->street->full);
+                update_post_meta($post->post_id, 'location', $item->property->address->geolookup->street->full);
             }
             if ( ! empty($square_foot)) {
-                update_post_meta($post->ID, 'square_footage', $item->property->building_size);
+                update_post_meta($post->post_id, 'square_footage', $item->property->building_size);
             }
             if ( ! empty($price)) {
-                update_post_meta($post->ID, 'price', $item->price->min);
+                update_post_meta($post->post_id, 'price', $item->price->min);
             }
             if ( ! empty($item->property->data->type->name)) {
-                update_post_meta($post->ID, 'property_type', $item->property->type->name);
+                update_post_meta($post->post_id, 'property_type', $item->property->type->name);
             }
             if ( ! empty($item->transaction_type->name)) {
-                update_post_meta($post->ID, 'transaction_type', $item->transaction_type->name);
+                update_post_meta($post->post_id, 'transaction_type', $item->transaction_type->name);
             }
             if ( ! empty($item->status->friendly)) {
-                update_post_meta($post->ID, 'status', $item->status->friendly);
+                update_post_meta($post->post_id, 'status', $item->status->friendly);
             }
-            update_post_meta($post->ID, 'runmybusiness_datastring',
+            update_post_meta($post->post_id, 'runmybusiness_datastring',
                 str_replace(['\"', '\/'], ['\\\\"', '\\\\/'], json_encode($item)));
         } else {
             // Else we create a new one

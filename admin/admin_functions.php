@@ -29,6 +29,8 @@ function register_runmybusiness_settings()
     add_settings_field('runmybusiness_api_recurrence', 'Cron Recurrence', 'runmybusiness_api_recurrence', 'runmybusiness_setting_admin', 'runmybusiness_settings');
     add_settings_field('runmybusiness_listing_api_url', 'Listing API URL', 'runmybusiness_listing_api_url', 'runmybusiness_setting_admin', 'runmybusiness_settings');
     add_settings_field('runmybusiness_person_api_url', 'People API URL', 'runmybusiness_person_api_url', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+    add_settings_field('runmybusiness_slug_listings', 'Listings Page Slug', 'runmybusiness_slug_listings', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+    add_settings_field('runmybusiness_slug_people', 'People Page Slug', 'runmybusiness_slug_people', 'runmybusiness_setting_admin', 'runmybusiness_settings');
 }
 
 // Displays RunMyBusiness settings layout
@@ -71,6 +73,28 @@ function runmybusiness_api_password()
 	<input type="text" id="runmybusiness_password" name="runmybusiness_options[runmybusiness_password]" value="<?php echo $password;
     ?>" style="width: 250px;" />
 <?php
+
+}
+
+function runmybusiness_slug_listings()
+{
+    $options = get_option('runmybusiness_options');
+    $slug = isset($options['runmybusiness_slug_listings']) ? $options['runmybusiness_slug_listings'] : '';
+    ?>
+    <input type="text" id="runmybusiness_slug_listings" name="runmybusiness_options[runmybusiness_slug_listings]" value="<?php echo $slug;
+    ?>" style="width: 250px;" />
+    <?php
+
+}
+
+function runmybusiness_slug_people()
+{
+    $options = get_option('runmybusiness_options');
+    $slug = isset($options['runmybusiness_slug_people']) ? $options['runmybusiness_slug_people'] : '';
+    ?>
+    <input type="text" id="runmybusiness_slug_people" name="runmybusiness_options[runmybusiness_slug_people]" value="<?php echo $slug;
+    ?>" style="width: 250px;" />
+    <?php
 
 }
 
