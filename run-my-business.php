@@ -75,7 +75,7 @@ function runmybusiness_validation($input)
     // Schedule the event
     $options    = get_option('runmybusiness_options');
     $recurrence = isset($options['runmybusiness_recurrence']) ? $options['runmybusiness_recurrence'] : '';
-    if ( ! empty($recurrence)) {
+    if (! empty($recurrence)) {
         wp_unschedule_event(time(), 'runmybusiness_update_content');
         wp_schedule_event(time(), $recurrence, 'runmybusiness_update_content');
     } else {
@@ -90,14 +90,14 @@ require_once plugin_dir_path(__FILE__) . 'includes/shortcode-people-list.php';
 
 function rmb_locate_plugin_template($template_names, $load = false, $require_once = true)
 {
-    if ( ! is_array($template_names)) {
+    if (! is_array($template_names)) {
         return '';
     }
     $located = '';
 
     $this_plugin_dir = WP_PLUGIN_DIR . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__));
     foreach ($template_names as $template_name) {
-        if ( ! $template_name) {
+        if (! $template_name) {
             continue;
         }
         if (file_exists(STYLESHEETPATH . '/' . $template_name)) {
@@ -124,7 +124,7 @@ require_once plugin_dir_path(__FILE__) . 'includes/template-archive-listing.php'
 
 function register_session()
 {
-    if ( ! session_id()) {
+    if (! session_id()) {
         session_start();
     }
 }
@@ -143,7 +143,7 @@ function custom_pagination($numpages = '', $pagerange = '', $paged = '')
     if ($numpages == '') {
         global $wp_query;
         $numpages = $wp_query->max_num_pages;
-        if ( ! $numpages) {
+        if (! $numpages) {
             $numpages = 1;
         }
     }
