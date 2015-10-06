@@ -19,6 +19,6 @@
     global $wp, $wp_query, $wp_the_query, $wp_rewrite, $wp_did_header;
     require(BASE_PATH . 'wp-load.php');
 
-    include('includes/sync_all.php');
+    include('includes/sync-all.php');
 
     runmybusiness_do_update_content();
