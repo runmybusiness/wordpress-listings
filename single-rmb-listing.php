@@ -17,7 +17,7 @@ get_header(); ?>
         $secondaryImages    = [];
 
         foreach (array_get($runmybusiness_data, 'property.data.photos.data', []) as $photo) {
-            if ( ! $photo['primary']) {
+            if (! $photo['primary']) {
                 $secondaryImages[$photo['id']] = $photo;
             }
         }
@@ -32,7 +32,7 @@ get_header(); ?>
         <h2 class="run-my-business-title"><?php the_title(); ?></h2>
 
         <div style="float: left; width: 22%; margin-right: 3%;">
-            <?php if ( ! empty($img)): ?>
+            <?php if (! empty($img)): ?>
                 <a href="<?php echo array_get($runmybusiness_data,
                     'property.data.primaryPhoto.data.sizes.1200'); ?>" rel="lightbox">
                     <img class="run-my-business-photo" src="<?php echo array_get($runmybusiness_data,
@@ -90,7 +90,7 @@ get_header(); ?>
                 </tr>
             </table>
 
-            <?php if ( ! empty($secondaryImages)): ?>
+            <?php if (! empty($secondaryImages)): ?>
                 <ul class="secondary-images">
                     <?php foreach ($secondaryImages as $image): ?>
                         <li>
