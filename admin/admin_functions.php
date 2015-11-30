@@ -32,7 +32,7 @@ function register_runmybusiness_settings()
     add_settings_field('runmybusiness_slug_listings', 'Listings Page Slug', 'runmybusiness_slug_listings', 'runmybusiness_setting_admin', 'runmybusiness_settings');
     add_settings_field('runmybusiness_slug_people', 'People Page Slug', 'runmybusiness_slug_people', 'runmybusiness_setting_admin', 'runmybusiness_settings');
     
-    if(!empty($_POST['option_page'])) {
+    if (!empty($_POST['option_page'])) {
         global $wp_rewrite;
         $wp_rewrite->flush_rules(false);
     }
