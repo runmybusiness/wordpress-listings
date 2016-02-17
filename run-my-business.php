@@ -3,7 +3,7 @@
 /*
 Plugin Name: RunMyBusiness
 Plugin URI: https://wordpress.org/plugins/runmybusiness-listings/
-Version: 1.0.15
+Version: 1.0.17
 Description: This plugin imports data from RunMyBusiness.
 */
 
@@ -26,8 +26,10 @@ function create_post_types()
             //'show_ui' => false,
             'public'      => true,
             'has_archive' => true,
+            'show_in_rest'       => true,
+            'rest_base'          => 'rmb-listing',
             'rewrite'     => [
-                'slug' => array_get($options, 'runmybusiness_slug_listings', 'listings'),
+                'slug' => array_get($options, 'runmybusiness_slug_listings', 'rmb-listings'),
             ],
         ]
     );
@@ -43,8 +45,10 @@ function create_post_types()
             'show_ui'     => false,
             'public'      => false,
             'has_archive' => true,
+            'show_in_rest'       => true,
+            'rest_base'          => 'rmb-person',
             'rewrite'     => [
-                'slug' => array_get($options, 'runmybusiness_slug_people', 'people'),
+                'slug' => array_get($options, 'runmybusiness_slug_people', 'rmb-people'),
             ],
         ]
     );
@@ -52,8 +56,6 @@ function create_post_types()
 
 function add_rmb_styles()
 {
-    //var_dump(plugin_dir_url( __FILE__ ) . 'styles.css');die;
-
     wp_register_style('runmybusiness', plugin_dir_url(__FILE__) . 'style.css');
     wp_enqueue_style('runmybusiness');
 }

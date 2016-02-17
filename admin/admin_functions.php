@@ -13,6 +13,7 @@ function runmybusiness_tools_display()
 {
     if (array_key_exists('run_update', $_GET) && $_GET['run_update'] == 1) {
         runmybusiness_do_update_content();
+        flush_rewrite_rules();
     }
     echo '<h2>RunMyBusiness Tools</h2>';
     echo '<p>Run sync manually!</p>';
