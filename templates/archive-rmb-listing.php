@@ -1,3 +1,5 @@
+<?php get_header(); ?>
+
 <div class="listings">
     <?php
 
@@ -54,3 +56,8 @@
     endif;
     ?>
 </div>
+
+<?php do_action( 'fusion_after_content' ); ?>
+<?php get_footer();
+
+// Omit closing PHP tag to avoid "Headers already sent" issues.

@@ -1,3 +1,5 @@
+<?php get_header(); ?>
+
 <div class="listing-sidebar">
     <?php if (! empty($img)): ?>
         <a href="<?php echo array_get($runmybusiness_data, 'property.primaryPhoto.sizes.1200'); ?>" rel="lightbox">
@@ -99,3 +101,8 @@
         <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
     <?php endif; ?>
 </div>
+
+<?php do_action( 'fusion_after_content' ); ?>
+<?php get_footer();
+
+// Omit closing PHP tag to avoid "Headers already sent" issues.
