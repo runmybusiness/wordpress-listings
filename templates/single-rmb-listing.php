@@ -8,7 +8,7 @@
     $secondaryImages    = [];
 
     foreach (array_get($runmybusiness_data, 'property.photos.data', []) as $photo) {
-        if ( ! $photo['primary']) {
+        if (! $photo['primary']) {
             $secondaryImages[$photo['id']] = $photo;
         }
     }
