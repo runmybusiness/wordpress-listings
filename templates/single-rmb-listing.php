@@ -1,4 +1,18 @@
 <?php get_header(); ?>
+<?php
+    // Start the loop.
+    while (have_posts()) :
+    the_post();
+    $runmybusiness_data = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
+    $img                = array_get($runmybusiness_data, 'property.primaryPhoto.sizes.250_sq');
+    $secondaryImages    = [];
+
+    foreach (array_get($runmybusiness_data, 'property.photos.data', []) as $photo) {
+        if ( ! $photo['primary']) {
+            $secondaryImages[$photo['id']] = $photo;
+        }
+    }
+?>
 
 <div class="listing-sidebar">
     <?php if (! empty($img)): ?>
@@ -102,7 +116,11 @@
     <?php endif; ?>
 </div>
 
-<?php do_action('fusion_after_content'); ?>
-<?php get_footer();
+<?php
+    // End the loop.
+    endwhile;
 
-// Omit closing PHP tag to avoid "Headers already sent" issues.
+    do_action('fusion_after_content');
+    get_footer();
+
+    // Omit closing PHP tag to avoid "Headers already sent" issues.
