@@ -1,6 +1,6 @@
 <div class="listing-sidebar">
-    <?php if ( ! empty($img)): ?>
-        <a href="<?php echo array_get($runmybusiness_data,'property.primaryPhoto.sizes.1200'); ?>" rel="lightbox">
+    <?php if (! empty($img)): ?>
+        <a href="<?php echo array_get($runmybusiness_data, 'property.primaryPhoto.sizes.1200'); ?>" rel="lightbox">
             <img class="run-my-business-photo" src="<?php echo $img; ?>" alt="<?php the_title(); ?>" class="aligncenter"/>
         </a>
     <?php else: ?>
@@ -9,7 +9,7 @@
 
     <br><br>
 
-    <?php if ( ! empty($secondaryImages)): ?>
+    <?php if (! empty($secondaryImages)): ?>
     <ul class="secondary-images">
         <?php foreach ($secondaryImages as $image): ?>
             <li>
@@ -26,13 +26,13 @@
     <div class="single-map" id="single-map"></div>
 
     <table class="run-my-business-details">
-        <?php if(array_get($runmybusiness_data, 'property.address.geolookup.formatted_address')): ?>
+        <?php if (array_get($runmybusiness_data, 'property.address.geolookup.formatted_address')): ?>
         <tr>
             <td><strong><span class="blue">Address:</span> </strong></td>
             <td><?php echo array_get($runmybusiness_data, 'property.address.geolookup.formatted_address'); ?></td>
         </tr>
         <?php endif;?>
-        <?php if(array_get($runmybusiness_data, 'overview')): ?>
+        <?php if (array_get($runmybusiness_data, 'overview')): ?>
         <tr>
             <td><strong><span class="blue">Overview:</span> </strong></td>
             <td><?php echo array_get($runmybusiness_data, 'overview'); ?></td>
@@ -42,19 +42,19 @@
             <td style="width: 35%; padding-right: 10px;"><strong>Property Type: </strong></td>
             <td><?php echo get_post_meta($post->ID, 'property_type', true); ?></td>
         </tr>
-        <?php if(array_get($runmybusiness_data, 'price.min', 0)): ?>
+        <?php if (array_get($runmybusiness_data, 'price.min', 0)): ?>
         <tr>
             <td><strong>Price: </strong></td>
             <td>$<?php echo number_format(array_get($runmybusiness_data, 'price.min', 0)); ?></td>
         </tr>
         <?php endif;?>
-        <?php if(array_get($runmybusiness_data, 'property.building_size')): ?>
+        <?php if (array_get($runmybusiness_data, 'property.building_size')): ?>
         <tr>
             <td><strong>Building Size: </strong></td>
             <td><?php echo number_format(array_get($runmybusiness_data, 'property.building_size')); ?></td>
         </tr>
         <?php endif;?>
-        <?php if(array_get($runmybusiness_data, 'salient_points')): ?>
+        <?php if (array_get($runmybusiness_data, 'salient_points')): ?>
         <tr>
             <td><strong>Salient Points: </strong></td>
             <td><?php echo array_get($runmybusiness_data, 'salient_points'); ?></td>
