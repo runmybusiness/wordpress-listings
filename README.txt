@@ -1,6 +1,6 @@
 === RunMyBusiness ===
 Contributors: (runmybusiness)
-Stable tag: 1.0.19
+Stable tag: 1.0.20
 Tags: realestate, properties, listings, runmybusiness
 Requires at least: 3.0.1
 Tested up to: 4.3
