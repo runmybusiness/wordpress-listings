@@ -2,7 +2,7 @@
 
 $runmybusiness_datastring = file_get_contents($runmybusiness_people_url, false, $context);
 $runmybusiness_data = json_decode($runmybusiness_datastring);
-if ( ! empty($runmybusiness_data->data)) {
+if (! empty($runmybusiness_data->data)) {
     $posts_runmybusiness = [];
     $querystr = "SELECT `post_id`, `meta_value` FROM $wpdb->postmeta WHERE `meta_key` = 'runmybusiness_person_id' AND `meta_value` > 0";
     $existing_posts = $wpdb->get_results($querystr, 'ARRAY_A');
