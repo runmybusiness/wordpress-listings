@@ -183,23 +183,23 @@ function runmybusiness_shortcode()
         <label for="runmybusiness_searchword">Search</label>
         <input type="text" name="runmybusiness_searchword" id="runmybusiness_searchword" value="<?php echo (array_key_exists('runmybusiness_searchword',
             $_SESSION)) ? $_SESSION['runmybusiness_searchword'] : '';
-        ?>"/>
+    ?>"/>
         <label for="runmybusiness_price_from">Price from</label>
         <input type="text" name="runmybusiness_price_from" id="runmybusiness_price_from" value="<?php echo (array_key_exists('runmybusiness_price_from',
             $_SESSION)) ? $_SESSION['runmybusiness_price_from'] : '';
-        ?>"/>
+    ?>"/>
         <label for="runmybusiness_price_to">Price to</label>
         <input type="text" name="runmybusiness_price_to" id="runmybusiness_price_to" value="<?php echo (array_key_exists('runmybusiness_price_to',
             $_SESSION)) ? $_SESSION['runmybusiness_price_to'] : '';
-        ?>"/>
+    ?>"/>
         <label for="runmybusiness_square_footage_from">Square footage from</label>
         <input type="text" name="runmybusiness_square_footage_from" id="runmybusiness_square_footage_from" value="<?php echo (array_key_exists('runmybusiness_square_footage_from',
             $_SESSION)) ? $_SESSION['runmybusiness_square_footage_from'] : '';
-        ?>"/>
+    ?>"/>
         <label for="runmybusiness_square_footage_to">Square footage to</label>
         <input type="text" name="runmybusiness_square_footage_to" id="runmybusiness_square_footage_to" value="<?php echo (array_key_exists('runmybusiness_square_footage_to',
             $_SESSION)) ? $_SESSION['runmybusiness_square_footage_to'] : '';
-        ?>"/>
+    ?>"/>
         <label for="runmybusiness_property_type">Property type</label>
         <select name="runmybusiness_property_type" id="runmybusiness_property_type">
             <option value=""></option>
@@ -208,13 +208,14 @@ function runmybusiness_shortcode()
                 ?>
                 <option value="<?php echo $type['meta_value'];
                 ?>"<?php if (array_key_exists('runmybusiness_property_type', $_SESSION) && $_SESSION['runmybusiness_property_type'] == $type['meta_value']) {
-                    echo ' SELECTED';
-                }
+    echo ' SELECTED';
+}
                 ?>><?php echo $type['meta_value'];
-                    ?></option>
+                ?></option>
                 <?php
+
             }
-            ?>
+    ?>
         </select><br/>
         <label for="runmybusiness_status">Status</label>
         <select name="runmybusiness_status" id="runmybusiness_status">
@@ -224,37 +225,38 @@ function runmybusiness_shortcode()
                 ?>
                 <option value="<?php echo $status['meta_value'];
                 ?>"<?php if (array_key_exists('runmybusiness_status', $_SESSION) && $_SESSION['runmybusiness_status'] == $status['meta_value']) {
-                    echo ' SELECTED';
-                }
+    echo ' SELECTED';
+}
                 ?>><?php echo $status['meta_value'];
-                    ?></option>
+                ?></option>
                 <?php
+
             }
-            ?>
+    ?>
         </select><br/><br/>
         <label for="runmybusiness_sort_by">Sort by</label>
         <select name="runmybusiness_sort_by" id="runmybusiness_sort_by">
             <option value="price"<?php if (array_key_exists('runmybusiness_sort_by', $_SESSION) && $_SESSION['runmybusiness_sort_by'] == 'price') {
-                echo ' SELECTED';
-            }
-            ?>>Price
+    echo ' SELECTED';
+}
+    ?>>Price
             </option>
             <option value="square_footage"<?php if (array_key_exists('runmybusiness_sort_by', $_SESSION) && $_SESSION['runmybusiness_sort_by'] == 'square_footage') {
-                echo ' SELECTED';
-            }
-            ?>>Square footage
+    echo ' SELECTED';
+}
+    ?>>Square footage
             </option>
         </select>
         <select name="runmybusiness_sort_direction" id="runmybusiness_sort_direction">
             <option value="asc"<?php if (array_key_exists('runmybusiness_sort_direction', $_SESSION) && $_SESSION['runmybusiness_sort_direction'] == 'asc') {
-                echo ' SELECTED';
-            }
-            ?>>Ascending
+    echo ' SELECTED';
+}
+    ?>>Ascending
             </option>
             <option value="desc"<?php if (array_key_exists('runmybusiness_sort_direction', $_SESSION) && $_SESSION['runmybusiness_sort_direction'] == 'desc') {
-                echo ' SELECTED';
-            }
-            ?>>Descending
+    echo ' SELECTED';
+}
+    ?>>Descending
             </option>
         </select><br/>
         <button type="submit">Search</button>
@@ -276,30 +278,33 @@ function runmybusiness_shortcode()
                 ?>
                 <li>
                     <img src="<?php echo $img;
-                    ?>" alt="<?php echo the_title();
-                    ?>"/>
+                ?>" alt="<?php echo the_title();
+                ?>"/>
                     <div class="listing_title"><a href="<?php echo get_permalink($post_id);
-                        ?>"><?php echo the_title();
-                            ?></a></div>
+                ?>"><?php echo the_title();
+                ?></a></div>
                     <div>Square footage: <?php echo get_post_meta($post_id, 'square_footage', true);
-                        ?></div>
+                ?></div>
                     <div>Property type: <?php echo get_post_meta($post_id, 'property_type', true);
-                        ?></div>
+                ?></div>
                     <div>Transaction type: <?php echo get_post_meta($post_id, 'transaction_type', true);
-                        ?></div>
+                ?></div>
                     <div>Status: <?php echo get_post_meta($post_id, 'status', true);
-                        ?></div>
+                ?></div>
                 </li>
                 <?php
+
             }
-            ?>
+        ?>
         </ul>
         <?php
+
     }
     custom_pagination($query->max_num_pages, '', $paged);
     ?>
 
     <?php
+
 }
 
 add_shortcode('runmybusiness', 'runmybusiness_shortcode');
