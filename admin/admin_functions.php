@@ -17,7 +17,7 @@ function runmybusiness_tools_display()
     }
     echo '<h2>RunMyBusiness Tools</h2>';
     echo '<p>Run sync manually!</p>';
-    echo '<a class="button" href="'.admin_url('tools.php?page=runmybusiness_tools&run_update=1').'">Run update</a>';
+    echo '<a class="button" href="' . admin_url('tools.php?page=runmybusiness_tools&run_update=1') . '">Run update</a>';
 }
 
 add_action('admin_init', 'register_runmybusiness_settings');
@@ -32,8 +32,8 @@ function register_runmybusiness_settings()
     add_settings_field('runmybusiness_person_api_url', 'People API URL', 'runmybusiness_person_api_url', 'runmybusiness_setting_admin', 'runmybusiness_settings');
     add_settings_field('runmybusiness_slug_listings', 'Listings Page Slug', 'runmybusiness_slug_listings', 'runmybusiness_setting_admin', 'runmybusiness_settings');
     add_settings_field('runmybusiness_slug_people', 'People Page Slug', 'runmybusiness_slug_people', 'runmybusiness_setting_admin', 'runmybusiness_settings');
-    
-    if (!empty($_POST['option_page'])) {
+
+    if (! empty($_POST['option_page'])) {
         global $wp_rewrite;
         $wp_rewrite->flush_rules(false);
     }
@@ -43,21 +43,20 @@ function register_runmybusiness_settings()
 function create_admin_page()
 {
     ?>
-	<div class="wrap">
-		<?php screen_icon();
-    ?>
-		<h2>RunMyBusiness API Settings</h2>
-		<form method="post" action="options.php">
-			<?php settings_fields('runmybusiness_options');
-    ?>
-			<?php do_settings_sections('runmybusiness_setting_admin');
-    ?>
-			<?php submit_button();
-    ?>
-		</form>
-	</div>
-	<?php
-
+    <div class="wrap">
+        <?php screen_icon();
+        ?>
+        <h2>RunMyBusiness API Settings</h2>
+        <form method="post" action="options.php">
+            <?php settings_fields('runmybusiness_options');
+            ?>
+            <?php do_settings_sections('runmybusiness_setting_admin');
+            ?>
+            <?php submit_button();
+            ?>
+        </form>
+    </div>
+    <?php
 }
 
 function runmybusiness_api_username()
@@ -65,10 +64,9 @@ function runmybusiness_api_username()
     $options = get_option('runmybusiness_options');
     $username = isset($options['runmybusiness_username']) ? $options['runmybusiness_username'] : '';
     ?>
-	<input type="text" id="runmybusiness_username" name="runmybusiness_options[runmybusiness_username]" value="<?php echo $username;
-    ?>" style="width: 250px;" />
-<?php
-
+    <input type="text" id="runmybusiness_username" name="runmybusiness_options[runmybusiness_username]" value="<?php echo $username;
+    ?>" style="width: 250px;"/>
+    <?php
 }
 
 function runmybusiness_api_password()
@@ -76,10 +74,9 @@ function runmybusiness_api_password()
     $options = get_option('runmybusiness_options');
     $password = isset($options['runmybusiness_password']) ? $options['runmybusiness_password'] : '';
     ?>
-	<input type="text" id="runmybusiness_password" name="runmybusiness_options[runmybusiness_password]" value="<?php echo $password;
-    ?>" style="width: 250px;" />
-<?php
-
+    <input type="text" id="runmybusiness_password" name="runmybusiness_options[runmybusiness_password]" value="<?php echo $password;
+    ?>" style="width: 250px;"/>
+    <?php
 }
 
 function runmybusiness_slug_listings()
@@ -88,9 +85,8 @@ function runmybusiness_slug_listings()
     $slug = isset($options['runmybusiness_slug_listings']) ? $options['runmybusiness_slug_listings'] : '';
     ?>
     <input type="text" id="runmybusiness_slug_listings" name="runmybusiness_options[runmybusiness_slug_listings]" value="<?php echo $slug;
-    ?>" style="width: 250px;" />
+    ?>" style="width: 250px;"/>
     <?php
-
 }
 
 function runmybusiness_slug_people()
@@ -99,9 +95,8 @@ function runmybusiness_slug_people()
     $slug = isset($options['runmybusiness_slug_people']) ? $options['runmybusiness_slug_people'] : '';
     ?>
     <input type="text" id="runmybusiness_slug_people" name="runmybusiness_options[runmybusiness_slug_people]" value="<?php echo $slug;
-    ?>" style="width: 250px;" />
+    ?>" style="width: 250px;"/>
     <?php
-
 }
 
 function runmybusiness_api_recurrence()
@@ -110,24 +105,22 @@ function runmybusiness_api_recurrence()
     $options = get_option('runmybusiness_options');
     $recurrence = isset($options['runmybusiness_recurrence']) ? $options['runmybusiness_recurrence'] : '';
     ?>
-	<select name="runmybusiness_options[runmybusiness_recurrence]">
-		<option value="">None</option>
-	<?php
-    foreach ($recurrence_options as $key => $val) {
+    <select name="runmybusiness_options[runmybusiness_recurrence]">
+        <option value="">None</option>
+        <?php
+        foreach ($recurrence_options as $key => $val) {
+            ?>
+            <option value="<?php echo $val;
+            ?>"<?php if ($recurrence == $val) {
+                echo ' SELECTED';
+            }
+            ?>><?php echo $val;
+                ?></option>
+            <?php
+        }
         ?>
-		<option value="<?php echo $val;
-        ?>"<?php if ($recurrence == $val) {
-    echo ' SELECTED';
-}
-        ?>><?php echo $val;
-        ?></option>
-	<?php
-
-    }
-    ?>
-	</select>
-<?php
-
+    </select>
+    <?php
 }
 
 function runmybusiness_listing_api_url()
@@ -135,10 +128,9 @@ function runmybusiness_listing_api_url()
     $options = get_option('runmybusiness_options');
     $runmybusiness_url = isset($options['runmybusiness_listing_url']) ? $options['runmybusiness_listing_url'] : '';
     ?>
-	<input type="text" id="runmybusiness_listing_url" name="runmybusiness_options[runmybusiness_listing_url]" value="<?php echo $runmybusiness_url;
-    ?>" style="width: 500px;" />
-<?php
-
+    <input type="text" id="runmybusiness_listing_url" name="runmybusiness_options[runmybusiness_listing_url]" value="<?php echo $runmybusiness_url;
+    ?>" style="width: 500px;"/>
+    <?php
 }
 
 function runmybusiness_person_api_url()
@@ -146,8 +138,7 @@ function runmybusiness_person_api_url()
     $options = get_option('runmybusiness_options');
     $runmybusiness_url = isset($options['runmybusiness_people_url']) ? $options['runmybusiness_people_url'] : '';
     ?>
-	<input type="text" id="runmybusiness_people_url" name="runmybusiness_options[runmybusiness_people_url]" value="<?php echo $runmybusiness_url;
-    ?>" style="width: 500px;" />
-<?php
-
+    <input type="text" id="runmybusiness_people_url" name="runmybusiness_options[runmybusiness_people_url]" value="<?php echo $runmybusiness_url;
+    ?>" style="width: 500px;"/>
+    <?php
 }

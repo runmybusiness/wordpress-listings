@@ -17,18 +17,18 @@ function create_post_types()
 
     register_post_type('rmb-listing',
         [
-            'labels'      => [
+            'labels'       => [
                 'name'          => __('Listings'),
                 'singular_name' => __('Listing'),
                 'add_new_item'  => __('Add New Listing'),
                 'edit_item'     => __('Edit Listing'),
             ],
             //'show_ui' => false,
-            'public'      => true,
-            'has_archive' => true,
-            'show_in_rest'       => true,
-            'rest_base'          => 'rmb-listing',
-            'rewrite'     => [
+            'public'       => true,
+            'has_archive'  => true,
+            'show_in_rest' => true,
+            'rest_base'    => 'rmb-listing',
+            'rewrite'      => [
                 'slug' => array_get($options, 'runmybusiness_slug_listings', 'rmb-listings'),
             ],
         ]
@@ -36,18 +36,18 @@ function create_post_types()
 
     register_post_type('rmb-person',
         [
-            'labels'      => [
+            'labels'       => [
                 'name'          => __('People'),
                 'singular_name' => __('Person'),
                 'add_new_item'  => __('Add New Person'),
                 'edit_item'     => __('Edit Person'),
             ],
-            'show_ui'     => false,
-            'public'      => false,
-            'has_archive' => true,
-            'show_in_rest'       => true,
-            'rest_base'          => 'rmb-person',
-            'rewrite'     => [
+            'show_ui'      => false,
+            'public'       => false,
+            'has_archive'  => true,
+            'show_in_rest' => true,
+            'rest_base'    => 'rmb-person',
+            'rewrite'      => [
                 'slug' => array_get($options, 'runmybusiness_slug_people', 'rmb-people'),
             ],
         ]
@@ -75,7 +75,7 @@ function runmybusiness_validation($input)
 {
     // Schedule runmybusiness cron
     // Schedule the event
-    $options    = get_option('runmybusiness_options');
+    $options = get_option('runmybusiness_options');
     $recurrence = isset($options['runmybusiness_recurrence']) ? $options['runmybusiness_recurrence'] : '';
     if (! empty($recurrence)) {
         wp_unschedule_event(time(), 'runmybusiness_update_content');

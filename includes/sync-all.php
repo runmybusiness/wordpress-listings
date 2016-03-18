@@ -1,6 +1,5 @@
 <?php
 
-
 if (! function_exists('runmybusiness_do_update_content')) {
     // Register new action to run on cron execution
     add_action('runmybusiness_update_content', 'runmybusiness_do_update_content');
