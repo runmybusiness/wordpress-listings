@@ -54,6 +54,49 @@ function create_post_types()
     );
 }
 
+//add_action('init', 'add_rmb_taxonomies', 0);
+//function add_rmb_taxonomies()
+//{
+//    register_taxonomy(
+//        'rmb-listing_transaction_type',
+//        'rmb-listing',
+//        [
+//            'labels'        => [
+//                'name' => 'Transaction Type',
+//            ],
+//            'show_ui'       => false,
+//            'show_tagcloud' => false,
+//            'hierarchical'  => true,
+//        ]
+//    );
+//
+//    register_taxonomy(
+//        'rmb-listing_status',
+//        'rmb-listing',
+//        [
+//            'labels'        => [
+//                'name' => 'Market Status',
+//            ],
+//            'show_ui'       => false,
+//            'show_tagcloud' => false,
+//            'hierarchical'  => true,
+//        ]
+//    );
+//
+//    register_taxonomy(
+//        'rmb-listing_property_type',
+//        'rmb-listing',
+//        [
+//            'labels'        => [
+//                'name' => 'Property Type',
+//            ],
+//            'show_ui'       => false,
+//            'show_tagcloud' => false,
+//            'hierarchical'  => true,
+//        ]
+//    );
+//}
+
 function add_rmb_styles()
 {
     wp_register_style('runmybusiness', plugin_dir_url(__FILE__) . 'style.css');
@@ -132,6 +175,15 @@ function register_session()
 }
 
 add_action('init', 'register_session');
+
+function add_custom_query_vars($vars)
+{
+    $vars[] = "sort_by";
+    $vars[] = "sort_direction";
+    $vars[] = "property_type";
+    return $vars;
+}
+add_filter('query_vars', 'add_custom_query_vars');
 
 function custom_pagination($numpages = '', $pagerange = '', $paged = '')
 {

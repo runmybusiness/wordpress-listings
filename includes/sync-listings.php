@@ -26,14 +26,20 @@ if (! empty($runmybusiness_data->data)) {
 
             wp_update_post($update_post);
 
-            if (! empty($address)) {
+            if (! empty($item->name)) {
+                update_post_meta($post->post_id, 'listing_name', $item->name);
+            }
+            if (! empty($item->property->address->geolookup->street->full)) {
                 update_post_meta($post->post_id, 'location', $item->property->address->geolookup->street->full);
             }
-            if (! empty($square_foot)) {
+            if (! empty($item->property->building_size)) {
                 update_post_meta($post->post_id, 'square_footage', $item->property->building_size);
             }
-            if (! empty($price)) {
+            if (! empty($item->price->min)) {
                 update_post_meta($post->post_id, 'price', $item->price->min);
+            }
+            if (! empty($item->cap_rate)) {
+                update_post_meta($post->post_id, 'cap_rate', $item->cap_rate);
             }
             if (! empty($item->property->data->type->name)) {
                 update_post_meta($post->post_id, 'property_type', $item->property->type->name);
@@ -56,14 +62,20 @@ if (! empty($runmybusiness_data->data)) {
             ];
             $post_id = wp_insert_post($new_post);
             add_post_meta($post_id, 'runmybusiness_listing_id ', $item->id);
-            if (! empty($address)) {
+            if (! empty($item->name)) {
+                add_post_meta($post->post_id, 'listing_name', $item->name);
+            }
+            if (! empty($item->property->address->geolookup->street->full)) {
                 add_post_meta($post_id, 'location', $item->property->address->geolookup->street->full);
             }
-            if (! empty($square_foot)) {
+            if (! empty($item->property->building_size)) {
                 add_post_meta($post_id, 'square_footage', $item->property->building_size);
             }
-            if (! empty($price)) {
+            if (! empty($item->price->min)) {
                 add_post_meta($post_id, 'price', $item->price->min);
+            }
+            if (! empty($item->cap_rate)) {
+                add_post_meta($post->post_id, 'cap_rate', $item->cap_rate);
             }
             if (! empty($item->property->data->type->name)) {
                 add_post_meta($post_id, 'property_type', $item->property->data->type->name);

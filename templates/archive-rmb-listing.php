@@ -1,11 +1,28 @@
 <?php get_header(); ?>
 
+    <div id="listing-filters">
+        Sort By:
+        <ul>
+            <li><a href="<?php echo add_query_arg(['sort_by' => 'price', 'sort_direction' => 'DESC']) ?>">Price</a></li>
+            <li><a href="<?php echo add_query_arg(['sort_by' => 'cap_rate', 'sort_direction' => 'DESC']) ?>">Cap Rate</a></li>
+            <li><a href="<?php echo add_query_arg(['sort_by' => 'listing_name', 'sort_direction' => 'ASC']) ?>"></a>Name</li>
+        </ul>
+    </div>
+
     <div class="listings">
         <?php
 
-        if (have_posts()):
+        $query = new WP_Query([
+            'post_type'      => 'rmb-listing',
+            'posts_per_page' => -1,
+            'meta_key'       => get_query_var('sort_by') ?: 'price',
+            'orderby'        => 'meta_value_num',
+            'order'          => (get_query_var('sort_direction') == 'DESC' ? 'DESC' : 'ASC'),
+        ]);
+
+        if ($query->have_posts()):
             // Start the Loop.
-            while (have_posts()) : the_post();
+            while ($query->have_posts()) : $query->the_post();
                 global $post;
                 $rmb_post_custom = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
 
@@ -51,6 +68,8 @@
 
                 // End the loop.
             endwhile;
+
+            echo custom_pagination();
         // If no content, include the "No posts found" template.
         else :
             get_template_part('content', 'none');
