@@ -5,7 +5,7 @@
         <ul>
             <li><a href="<?php echo add_query_arg(['sort_by' => 'price', 'sort_direction' => 'DESC']) ?>">Price</a></li>
             <li><a href="<?php echo add_query_arg(['sort_by' => 'cap_rate', 'sort_direction' => 'DESC']) ?>">Cap Rate</a></li>
-            <li><a href="<?php echo add_query_arg(['sort_by' => 'listing_name', 'sort_direction' => 'ASC']) ?>"></a>Name</li>
+            <li><a href="<?php echo add_query_arg(['sort_by' => 'listing_name', 'sort_direction' => 'ASC']) ?>">Name</a></li>
         </ul>
     </div>
 
