@@ -1,5 +1,4 @@
-<?php get_header(); ?>
-<?php
+<?php get_header();
 // Start the loop.
 while (have_posts()) :
     the_post();
