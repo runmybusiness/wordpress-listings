@@ -56,3 +56,13 @@ if (! function_exists('array_get_from_field_array')) {
         return array_get($array, $key, $default);
     }
 }
+
+if (! function_exists('escapeJsonString')) {
+    function escapeJsonString($value)
+    {
+        $escapers = ["\\", "/", "\"", "\n", "\r", "\t", "\x08", "\x0c"];
+        $replacements = ["\\\\", "\\/", "\\\"", "\\n", "\\r", "\\t", "\\f", "\\b"];
+        $result = str_replace($escapers, $replacements, $value);
+        return $result;
+    }
+}

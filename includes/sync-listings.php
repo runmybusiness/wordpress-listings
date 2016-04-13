@@ -25,6 +25,7 @@ if (! empty($runmybusiness_data->data)) {
             ];
 
             $post_id = wp_update_post($update_post);
+            $postMetaFunction = 'update_post_meta';
         } else {
             // Else we create a new one
             $new_post = [
@@ -34,34 +35,37 @@ if (! empty($runmybusiness_data->data)) {
                 'post_type'    => 'rmb-listing',
             ];
             $post_id = wp_insert_post($new_post);
+            $postMetaFunction = 'add_post_meta';
         }
 
         if (! empty($item->name)) {
-            update_post_meta($post->post_id, 'listing_name', $item->name);
+            $postMetaFunction($post->post_id, 'listing_name', $item->name);
         }
         if (! empty($item->property->address->geolookup->street->full)) {
-            update_post_meta($post->post_id, 'location', $item->property->address->geolookup->street->full);
+            $postMetaFunction($post->post_id, 'location', $item->property->address->geolookup->street->full);
         }
         if (! empty($item->property->building_size)) {
-            update_post_meta($post->post_id, 'square_footage', $item->property->building_size);
+            $postMetaFunction($post->post_id, 'square_footage', $item->property->building_size);
         }
         if (! empty($item->price->min)) {
-            update_post_meta($post->post_id, 'price', $item->price->min);
+            $postMetaFunction($post->post_id, 'price', $item->price->min);
         }
         if (! empty($item->cap_rate)) {
-            update_post_meta($post->post_id, 'cap_rate', $item->cap_rate);
+            $postMetaFunction($post->post_id, 'cap_rate', $item->cap_rate);
         }
         if (! empty($item->property->data->type->name)) {
-            update_post_meta($post->post_id, 'property_type', $item->property->type->name);
+            $postMetaFunction($post->post_id, 'property_type', $item->property->type->name);
         }
         if (! empty($item->transaction_type->name)) {
-            update_post_meta($post->post_id, 'transaction_type', $item->transaction_type->name);
+            $postMetaFunction($post->post_id, 'transaction_type', $item->transaction_type->name);
         }
         if (! empty($item->status->friendly)) {
-            update_post_meta($post->post_id, 'status', $item->status->friendly);
+            $postMetaFunction($post->post_id, 'status', $item->status->friendly);
         }
 
-        update_post_meta($post->post_id, 'runmybusiness_datastring', str_replace('\r\n', '\\r\\n', json_encode($item)));
+        $postMetaFunction($post->post_id, 'runmybusiness_datastring', escapeJsonString(json_encode($item)));
+
+        echo "\n Updated/Inserted {$item->name}\n";
     }
     // Delete the posts that are not present in runmybusiness anymore
     $post_to_delete = array_diff($posts_runmybusiness, $runmybusiness_ids);
