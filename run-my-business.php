@@ -132,6 +132,7 @@ function runmybusiness_validation($input)
 
 require_once plugin_dir_path(__FILE__) . 'includes/shortcode-property-filter.php';
 require_once plugin_dir_path(__FILE__) . 'includes/shortcode-people-list.php';
+require_once plugin_dir_path(__FILE__) . 'includes/shortcode-signup-form.php';
 
 function rmb_locate_plugin_template($template_names, $load = false, $require_once = true)
 {
