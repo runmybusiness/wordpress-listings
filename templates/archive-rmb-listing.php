@@ -18,7 +18,8 @@
             'posts_per_page' => -1,
             'meta_key'       => get_query_var('sort_by') ?: 'price',
             'orderby'        => 'meta_value_num',
-            'order'          => (get_query_var('sort_direction') == 'DESC' ? 'DESC' : 'ASC'),
+            'order'          => (get_query_var('sort_direction') == 'ASC' ? 'ASC' : 'DESC'),
+
         ]);
 
         if ($query->have_posts()):
