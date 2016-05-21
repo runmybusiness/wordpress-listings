@@ -29,7 +29,7 @@ function rmb_signup_handle_post($attr)
             'groups' => $groups,
             'firstname' => $firstname,
             'lastname' => $lastname,
-            'organization' => $company,
+            'organization' => $organization,
             ];
         $dataToPass = http_build_query($dataToPass);
 
