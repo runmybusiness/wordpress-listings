@@ -43,7 +43,7 @@ function create_post_types()
                 'edit_item'     => __('Edit Person'),
             ],
             'show_ui'      => false,
-            'public'       => false,
+            'public'       => true,
             'has_archive'  => true,
             'show_in_rest' => true,
             'rest_base'    => 'rmb-person',
