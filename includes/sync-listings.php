@@ -49,7 +49,7 @@ if (! empty($runmybusiness_data->data)) {
             $postMetaFunction($post_id, 'location', $item->property->address->geolookup->street->full);
         }
         if (! empty($item->property->address->geolookup->province->name)) {
-            $postMetaFunction($post_id, 'state', $item->property->address->geolookup->province->name);
+            $postMetaFunction($post_id, 'state', $item->property->address->geolookup->province->short_name);
         }
         if (! empty($item->property->building_size)) {
             $postMetaFunction($post_id, 'square_footage', $item->property->building_size);
