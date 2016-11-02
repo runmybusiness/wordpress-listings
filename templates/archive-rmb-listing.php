@@ -33,9 +33,15 @@
             'post_type'      => 'rmb-listing',
             'posts_per_page' => -1,
             'meta_key'       => get_query_var('sort_by') ?: 'price',
-            'orderby'        => 'meta_value_num',
+            'orderby'        => (get_query_var('sort_by') == 'state' ? 'meta_value' : 'meta_value_num'),
             'order'          => (get_query_var('sort_direction') == 'ASC' ? 'ASC' : 'DESC'),
-
+            'meta_query'     => get_query_var('filter_by') ? [
+                [
+                    'key'     => get_query_var('filter_by'),
+                    'value'   => get_query_var('filter_value'),
+                    'compare' => '=',
+                ],
+            ] : [],
         ]);
 
         if ($query->have_posts()):

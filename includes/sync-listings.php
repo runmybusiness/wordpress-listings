@@ -66,6 +66,9 @@ if (! empty($runmybusiness_data->data)) {
         if (! empty($item->transaction_type->name)) {
             $postMetaFunction($post_id, 'transaction_type', $item->transaction_type->name);
         }
+        if (! empty($item->property->tenancy->name)) {
+            $postMetaFunction($post_id, 'tenancy', $item->property->tenancy->name);
+        }
         if (! empty($item->status->friendly)) {
             $postMetaFunction($post_id, 'status', $item->status->friendly);
         }

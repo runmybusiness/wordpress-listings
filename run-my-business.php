@@ -3,7 +3,7 @@
 /*
 Plugin Name: RunMyBusiness
 Plugin URI: https://wordpress.org/plugins/runmybusiness-listings/
-Version: 1.0.37
+Version: 1.0.38
 Description: This plugin imports data from RunMyBusiness.
 */
 
@@ -178,7 +178,8 @@ function add_custom_query_vars($vars)
 {
     $vars[] = "sort_by";
     $vars[] = "sort_direction";
-    $vars[] = "property_type";
+    $vars[] = "filter_by";
+    $vars[] = "filter_value";
     return $vars;
 }
 add_filter('query_vars', 'add_custom_query_vars');
