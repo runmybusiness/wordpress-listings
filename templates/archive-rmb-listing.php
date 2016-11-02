@@ -3,10 +3,26 @@
     <div id="listing-filters">
         Sort By:
         <ul>
-            <li><a href="<?php echo add_query_arg(['sort_by' => 'price', 'sort_direction' => (get_query_var('sort_direction') == 'DESC' ? 'ASC' : 'DESC')]) ?>">Price</a></li>
-            <li><a href="<?php echo add_query_arg(['sort_by' => 'cap_rate', 'sort_direction' => (get_query_var('sort_direction') == 'DESC' ? 'ASC' : 'DESC')]) ?>">Cap Rate</a></li>
-            <li><a href="<?php echo add_query_arg(['sort_by' => 'listing_name', 'sort_direction' => (get_query_var('sort_direction') == 'ASC' ? 'DESC' : 'ASC')]) ?>">Name</a></li>
-            <li><a href="<?php echo add_query_arg(['sort_by' => 'state', 'sort_direction' => (get_query_var('sort_direction') == 'ASC' ? 'DESC' : 'ASC')]) ?>">State</a></li>
+            <li>
+                <a href="<?php echo add_query_arg(['sort_by' => 'price', 'sort_direction' => (get_query_var('sort_direction') == 'DESC' ? 'ASC' : 'DESC')]) ?>">
+                    Price
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo add_query_arg(['sort_by' => 'cap_rate', 'sort_direction' => (get_query_var('sort_direction') == 'DESC' ? 'ASC' : 'DESC')]) ?>">
+                    Cap Rate
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo add_query_arg(['sort_by' => 'listing_name', 'sort_direction' => (get_query_var('sort_direction') == 'ASC' ? 'DESC' : 'ASC')]) ?>">
+                    Name
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo add_query_arg(['sort_by' => 'state', 'sort_direction' => (get_query_var('sort_direction') == 'ASC' ? 'DESC' : 'ASC')]) ?>">
+                    State
+                </a>
+            </li>
         </ul>
     </div>
 
