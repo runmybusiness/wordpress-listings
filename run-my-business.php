@@ -52,6 +52,25 @@ function create_post_types()
             ],
         ]
     );
+
+    register_post_type('rmb-comparable',
+        [
+            'labels'       => [
+                'name'          => __('Comparables'),
+                'singular_name' => __('Comparable'),
+                'add_new_item'  => __('Add New Comparable'),
+                'edit_item'     => __('Edit Comparable'),
+            ],
+            'show_ui'      => false,
+            'public'       => true,
+            'has_archive'  => true,
+            'show_in_rest' => true,
+            'rest_base'    => 'rmb-comparable',
+            'rewrite'      => [
+                'slug' => array_get($options, 'runmybusiness_slug_comparables', 'rmb-comparable'),
+            ],
+        ]
+    );
 }
 
 //add_action('init', 'add_rmb_taxonomies', 0);
