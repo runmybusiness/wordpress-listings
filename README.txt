@@ -1,6 +1,6 @@
 === RunMyBusiness ===
 Contributors: (runmybusiness)
-Stable tag: 1.0.40
+Stable tag: 1.0.41
 Tags: realestate, properties, listings, runmybusiness
 Requires at least: 3.0.1
 Tested up to: 4.6
@@ -18,4 +18,5 @@ This plugin allows you to display your RunMyBusiness property listings on your o
  - Set your API Keys
  - Set your listings url
  - Set your team members url
+ - Set your comparables url
  - Run the manual sync and/or setup your wordpress cron job to run every hour
