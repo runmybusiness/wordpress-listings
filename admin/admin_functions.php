@@ -164,6 +164,7 @@ function runmybusiness_term_listings()
     $runmybusiness_url = isset($options['runmybusiness_term_listings']) ? $options['runmybusiness_term_listings'] : ''; ?>
     <input type="text" id="runmybusiness_term_listings" name="runmybusiness_options[runmybusiness_term_listings]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
     <?php
+
 }
 
 function runmybusiness_term_listing()
@@ -172,6 +173,7 @@ function runmybusiness_term_listing()
     $runmybusiness_url = isset($options['runmybusiness_term_listing']) ? $options['runmybusiness_term_listing'] : ''; ?>
     <input type="text" id="runmybusiness_term_listing" name="runmybusiness_options[runmybusiness_term_listing]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
     <?php
+
 }
 
 function runmybusiness_term_people()
@@ -180,6 +182,7 @@ function runmybusiness_term_people()
     $runmybusiness_url = isset($options['runmybusiness_term_people']) ? $options['runmybusiness_term_people'] : ''; ?>
     <input type="text" id="runmybusiness_term_people" name="runmybusiness_options[runmybusiness_term_people]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
     <?php
+
 }
 
 function runmybusiness_term_person()
@@ -188,6 +191,7 @@ function runmybusiness_term_person()
     $runmybusiness_url = isset($options['runmybusiness_term_person']) ? $options['runmybusiness_term_person'] : ''; ?>
     <input type="text" id="runmybusiness_term_person" name="runmybusiness_options[runmybusiness_term_person]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
     <?php
+
 }
 
 function runmybusiness_term_comparables()
@@ -196,6 +200,7 @@ function runmybusiness_term_comparables()
     $runmybusiness_url = isset($options['runmybusiness_term_comparables']) ? $options['runmybusiness_term_comparables'] : ''; ?>
     <input type="text" id="runmybusiness_term_comparables" name="runmybusiness_options[runmybusiness_term_comparables]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
     <?php
+
 }
 
 function runmybusiness_term_comparable()
@@ -204,4 +209,5 @@ function runmybusiness_term_comparable()
     $runmybusiness_url = isset($options['runmybusiness_term_comparable']) ? $options['runmybusiness_term_comparable'] : ''; ?>
     <input type="text" id="runmybusiness_term_comparable" name="runmybusiness_options[runmybusiness_term_comparable]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
     <?php
+
 }
