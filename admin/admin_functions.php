@@ -35,10 +35,10 @@ function register_runmybusiness_settings()
     add_settings_field('runmybusiness_comparable_api_url', 'Comparable API URL', 'runmybusiness_comparable_api_url', 'runmybusiness_setting_admin', 'runmybusiness_settings');
     add_settings_field('runmybusiness_slug_comparables', 'Comparables Page Slug', 'runmybusiness_slug_comparables', 'runmybusiness_setting_admin', 'runmybusiness_settings');
 
-    add_settings_field('runmybusiness_slug_listings', 'Listings Name', 'runmybusiness_slug_listings', 'runmybusiness_setting_admin', 'runmybusiness_settings');
-    add_settings_field('runmybusiness_slug_listing', 'Listing Name', 'runmybusiness_slug_listing', 'runmybusiness_setting_admin', 'runmybusiness_settings');
-    add_settings_field('runmybusiness_slug_people', 'People Name', 'runmybusiness_slug_people', 'runmybusiness_setting_admin', 'runmybusiness_settings');
-    add_settings_field('runmybusiness_slug_person', 'Person Name', 'runmybusiness_slug_person', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+    add_settings_field('runmybusiness_term_listings', 'Listings Name', 'runmybusiness_term_listings', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+    add_settings_field('runmybusiness_term_listing', 'Listing Name', 'runmybusiness_term_listing', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+    add_settings_field('runmybusiness_term_people', 'People Name', 'runmybusiness_term_people', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+    add_settings_field('runmybusiness_term_person', 'Person Name', 'runmybusiness_term_person', 'runmybusiness_setting_admin', 'runmybusiness_settings');
     add_settings_field('runmybusiness_term_comparables', 'Comparables Name', 'runmybusiness_term_comparables', 'runmybusiness_setting_admin', 'runmybusiness_settings');
     add_settings_field('runmybusiness_term_comparable', 'Comparable Name', 'runmybusiness_term_comparable', 'runmybusiness_setting_admin', 'runmybusiness_settings');
 
