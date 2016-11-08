@@ -1,6 +1,6 @@
 <?php
 
-$runmybusiness_datastring = file_get_contents($runmybusiness_people_url, false, $context);
+$runmybusiness_datastring = file_get_contents($runmybusiness_comparables_url, false, $context);
 $runmybusiness_data = json_decode($runmybusiness_datastring);
 if (! empty($runmybusiness_data->data)) {
     $posts_runmybusiness = [];
