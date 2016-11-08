@@ -55,6 +55,7 @@ function create_admin_page()
         </form>
     </div>
     <?php
+
 }
 
 function runmybusiness_api_username()
@@ -63,6 +64,7 @@ function runmybusiness_api_username()
     $username = isset($options['runmybusiness_username']) ? $options['runmybusiness_username'] : ''; ?>
     <input type="text" id="runmybusiness_username" name="runmybusiness_options[runmybusiness_username]" value="<?php echo $username; ?>" style="width: 250px;"/>
     <?php
+
 }
 
 function runmybusiness_api_password()
@@ -71,6 +73,7 @@ function runmybusiness_api_password()
     $password = isset($options['runmybusiness_password']) ? $options['runmybusiness_password'] : ''; ?>
     <input type="text" id="runmybusiness_password" name="runmybusiness_options[runmybusiness_password]" value="<?php echo $password; ?>" style="width: 250px;"/>
     <?php
+
 }
 
 function runmybusiness_slug_listings()
@@ -79,6 +82,7 @@ function runmybusiness_slug_listings()
     $slug = isset($options['runmybusiness_slug_listings']) ? $options['runmybusiness_slug_listings'] : ''; ?>
     <input type="text" id="runmybusiness_slug_listings" name="runmybusiness_options[runmybusiness_slug_listings]" value="<?php echo $slug; ?>" style="width: 250px;"/>
     <?php
+
 }
 
 function runmybusiness_slug_people()
@@ -87,6 +91,7 @@ function runmybusiness_slug_people()
     $slug = isset($options['runmybusiness_slug_people']) ? $options['runmybusiness_slug_people'] : ''; ?>
     <input type="text" id="runmybusiness_slug_people" name="runmybusiness_options[runmybusiness_slug_people]" value="<?php echo $slug; ?>" style="width: 250px;"/>
     <?php
+
 }
 
 function runmybusiness_slug_comparables()
@@ -95,6 +100,7 @@ function runmybusiness_slug_comparables()
     $slug = isset($options['runmybusiness_slug_comparables']) ? $options['runmybusiness_slug_comparables'] : ''; ?>
     <input type="text" id="runmybusiness_slug_comparables" name="runmybusiness_options[runmybusiness_slug_comparables]" value="<?php echo $slug; ?>" style="width: 250px;"/>
     <?php
+
 }
 
 function runmybusiness_api_recurrence()
@@ -111,9 +117,11 @@ function runmybusiness_api_recurrence()
                 echo ' SELECTED';
             } ?>><?php echo $val; ?></option>
             <?php
+
         } ?>
     </select>
     <?php
+
 }
 
 function runmybusiness_listing_api_url()
@@ -122,6 +130,7 @@ function runmybusiness_listing_api_url()
     $runmybusiness_url = isset($options['runmybusiness_listing_url']) ? $options['runmybusiness_listing_url'] : ''; ?>
     <input type="text" id="runmybusiness_listing_url" name="runmybusiness_options[runmybusiness_listing_url]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
     <?php
+
 }
 
 function runmybusiness_person_api_url()
@@ -130,6 +139,7 @@ function runmybusiness_person_api_url()
     $runmybusiness_url = isset($options['runmybusiness_people_url']) ? $options['runmybusiness_people_url'] : ''; ?>
     <input type="text" id="runmybusiness_people_url" name="runmybusiness_options[runmybusiness_people_url]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
     <?php
+
 }
 
 function runmybusiness_comparable_api_url()
@@ -138,4 +148,5 @@ function runmybusiness_comparable_api_url()
     $runmybusiness_url = isset($options['runmybusiness_comparables_url']) ? $options['runmybusiness_comparables_url'] : ''; ?>
     <input type="text" id="runmybusiness_comparables_url" name="runmybusiness_options[runmybusiness_comparables_url]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
     <?php
+
 }
