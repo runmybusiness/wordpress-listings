@@ -35,6 +35,13 @@ function register_runmybusiness_settings()
     add_settings_field('runmybusiness_comparable_api_url', 'Comparable API URL', 'runmybusiness_comparable_api_url', 'runmybusiness_setting_admin', 'runmybusiness_settings');
     add_settings_field('runmybusiness_slug_comparables', 'Comparables Page Slug', 'runmybusiness_slug_comparables', 'runmybusiness_setting_admin', 'runmybusiness_settings');
 
+    add_settings_field('runmybusiness_slug_listings', 'Listings Name', 'runmybusiness_slug_listings', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+    add_settings_field('runmybusiness_slug_listing', 'Listing Name', 'runmybusiness_slug_listing', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+    add_settings_field('runmybusiness_slug_people', 'People Name', 'runmybusiness_slug_people', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+    add_settings_field('runmybusiness_slug_person', 'Person Name', 'runmybusiness_slug_person', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+    add_settings_field('runmybusiness_term_comparables', 'Comparables Name', 'runmybusiness_term_comparables', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+    add_settings_field('runmybusiness_term_comparable', 'Comparable Name', 'runmybusiness_term_comparable', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+
     if (! empty($_POST['option_page'])) {
         global $wp_rewrite;
         $wp_rewrite->flush_rules(false);
@@ -149,4 +156,52 @@ function runmybusiness_comparable_api_url()
     <input type="text" id="runmybusiness_comparables_url" name="runmybusiness_options[runmybusiness_comparables_url]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
     <?php
 
+}
+
+function runmybusiness_term_listings()
+{
+    $options = get_option('runmybusiness_options');
+    $runmybusiness_url = isset($options['runmybusiness_term_listings']) ? $options['runmybusiness_term_listings'] : ''; ?>
+    <input type="text" id="runmybusiness_term_listings" name="runmybusiness_options[runmybusiness_term_listings]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
+    <?php
+}
+
+function runmybusiness_term_listing()
+{
+    $options = get_option('runmybusiness_options');
+    $runmybusiness_url = isset($options['runmybusiness_term_listing']) ? $options['runmybusiness_term_listing'] : ''; ?>
+    <input type="text" id="runmybusiness_term_listing" name="runmybusiness_options[runmybusiness_term_listing]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
+    <?php
+}
+
+function runmybusiness_term_people()
+{
+    $options = get_option('runmybusiness_options');
+    $runmybusiness_url = isset($options['runmybusiness_term_people']) ? $options['runmybusiness_term_people'] : ''; ?>
+    <input type="text" id="runmybusiness_term_people" name="runmybusiness_options[runmybusiness_term_people]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
+    <?php
+}
+
+function runmybusiness_term_person()
+{
+    $options = get_option('runmybusiness_options');
+    $runmybusiness_url = isset($options['runmybusiness_term_person']) ? $options['runmybusiness_term_person'] : ''; ?>
+    <input type="text" id="runmybusiness_term_person" name="runmybusiness_options[runmybusiness_term_person]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
+    <?php
+}
+
+function runmybusiness_term_comparables()
+{
+    $options = get_option('runmybusiness_options');
+    $runmybusiness_url = isset($options['runmybusiness_term_comparables']) ? $options['runmybusiness_term_comparables'] : ''; ?>
+    <input type="text" id="runmybusiness_term_comparables" name="runmybusiness_options[runmybusiness_term_comparables]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
+    <?php
+}
+
+function runmybusiness_term_comparable()
+{
+    $options = get_option('runmybusiness_options');
+    $runmybusiness_url = isset($options['runmybusiness_term_comparable']) ? $options['runmybusiness_term_comparable'] : ''; ?>
+    <input type="text" id="runmybusiness_term_comparable" name="runmybusiness_options[runmybusiness_term_comparable]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
+    <?php
 }

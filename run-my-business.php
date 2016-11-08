@@ -3,7 +3,7 @@
 /*
 Plugin Name: RunMyBusiness
 Plugin URI: https://wordpress.org/plugins/runmybusiness-listings/
-Version: 1.0.42
+Version: 1.0.43
 Description: This plugin imports data from RunMyBusiness.
 */
 
@@ -18,10 +18,10 @@ function create_post_types()
     register_post_type('rmb-listing',
         [
             'labels'       => [
-                'name'          => __('Listings'),
-                'singular_name' => __('Listing'),
-                'add_new_item'  => __('Add New Listing'),
-                'edit_item'     => __('Edit Listing'),
+                'name'          => __(array_get($options, 'runmybusiness_term_listings', 'Listings')),
+                'singular_name' => __(array_get($options, 'runmybusiness_term_listing', 'Listing')),
+                'add_new_item'  => __('Add New ' . array_get($options, 'runmybusiness_term_listing', 'Listing')),
+                'edit_item'     => __('Edit ' . array_get($options, 'runmybusiness_term_listing', 'Listing')),
             ],
             //'show_ui' => false,
             'public'       => true,
@@ -37,10 +37,10 @@ function create_post_types()
     register_post_type('rmb-person',
         [
             'labels'       => [
-                'name'          => __('People'),
-                'singular_name' => __('Person'),
-                'add_new_item'  => __('Add New Person'),
-                'edit_item'     => __('Edit Person'),
+                'name'          => __(array_get($options, 'runmybusiness_term_people', 'People')),
+                'singular_name' => __(array_get($options, 'runmybusiness_term_person', 'Person')),
+                'add_new_item'  => __('Add New ' . array_get($options, 'runmybusiness_term_person', 'Person')),
+                'edit_item'     => __('Edit ' . array_get($options, 'runmybusiness_term_person', 'Person')),
             ],
             'show_ui'      => false,
             'public'       => true,
@@ -56,10 +56,10 @@ function create_post_types()
     register_post_type('rmb-comparable',
         [
             'labels'       => [
-                'name'          => __('Comparables'),
-                'singular_name' => __('Comparable'),
-                'add_new_item'  => __('Add New Comparable'),
-                'edit_item'     => __('Edit Comparable'),
+                'name'          => __(array_get($options, 'runmybusiness_term_comparables', 'Comparables')),
+                'singular_name' => __(array_get($options, 'runmybusiness_term_comparable', 'Comparable')),
+                'add_new_item'  => __('Add New ' . array_get($options, 'runmybusiness_term_comparable', 'Comparable')),
+                'edit_item'     => __('Edit ' . array_get($options, 'runmybusiness_term_comparable', 'Comparable')),
             ],
             'show_ui'      => false,
             'public'       => true,
