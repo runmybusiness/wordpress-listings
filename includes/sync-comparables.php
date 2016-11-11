@@ -17,8 +17,10 @@ if (! empty($runmybusiness_data->data)) {
         $post = $wpdb->get_row($querystr);
 
         if ($post) {
-            update_post_meta($post->post_id, 'runmybusiness_datastring',
-                str_replace(['\"', '\/'], ['\\\\"', '\\\\/'], json_encode($item)));
+            update_post_meta($post->post_id, 'runmybusiness_datastring', str_replace(['\"', '\/'], ['\\\\"', '\\\\/'], json_encode($item)));
+            if (! empty($item->recorded_price)) {
+                update_post_meta($post->post_id, 'recorded_price', $item->recorded_price->raw);
+            }
         } else {
             // Else we create a new one
             $new_post = [
@@ -32,6 +34,10 @@ if (! empty($runmybusiness_data->data)) {
 
             add_post_meta($post_id, 'runmybusiness_comparable_id ', $item->id);
             add_post_meta($post_id, 'runmybusiness_datastring', json_encode($item));
+
+            if (! empty($item->recorded_price)) {
+                add_post_meta($post_id, 'recorded_price', $item->recorded_price->raw);
+            }
         }
     }
     // Delete the posts that are not present in runmybusiness anymore
