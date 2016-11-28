@@ -14,7 +14,7 @@ foreach ($dom->find('.tile') as $tile) {
     $rates[] = compact('title', 'value', 'change', 'pct', 'link');
 }
 
-file_put_contents('rates-cache.json', json_encode([
+file_put_contents(plugin_dir_path(__FILE__) . 'rates-cache.json', json_encode([
     'rates'     => $rates,
     'timestamp' => time(),
-]));
+], JSON_PRETTY_PRINT));
