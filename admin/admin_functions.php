@@ -42,6 +42,8 @@ function register_runmybusiness_settings()
     add_settings_field('runmybusiness_term_comparables', 'Comparables Name', 'runmybusiness_term_comparables', 'runmybusiness_setting_admin', 'runmybusiness_settings');
     add_settings_field('runmybusiness_term_comparable', 'Comparable Name', 'runmybusiness_term_comparable', 'runmybusiness_setting_admin', 'runmybusiness_settings');
 
+    add_settings_field('runmybusiness_rates_url', 'Financials Rates URL', 'runmybusiness_rates_url', 'runmybusiness_setting_admin', 'runmybusiness_settings');
+
     if (! empty($_POST['option_page'])) {
         global $wp_rewrite;
         $wp_rewrite->flush_rules(false);
@@ -208,6 +210,15 @@ function runmybusiness_term_comparable()
     $options = get_option('runmybusiness_options');
     $runmybusiness_url = isset($options['runmybusiness_term_comparable']) ? $options['runmybusiness_term_comparable'] : ''; ?>
     <input type="text" id="runmybusiness_term_comparable" name="runmybusiness_options[runmybusiness_term_comparable]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
+    <?php
+
+}
+
+function runmybusiness_rates_url()
+{
+    $options = get_option('runmybusiness_options');
+    $runmybusiness_url = isset($options['runmybusiness_rates_url']) ? $options['runmybusiness_rates_url'] : ''; ?>
+    <input type="text" id="runmybusiness_rates_url" name="runmybusiness_options[runmybusiness_rates_url]" value="<?php echo $runmybusiness_url; ?>" style="width: 500px;"/>
     <?php
 
 }

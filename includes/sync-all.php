@@ -1,6 +1,6 @@
 <?php
 
-if (! function_exists('runmybusiness_do_update_content')) {
+if ( ! function_exists('runmybusiness_do_update_content')) {
     // Register new action to run on cron execution
     add_action('runmybusiness_update_content', 'runmybusiness_do_update_content');
     function runmybusiness_do_update_content()
@@ -35,6 +35,11 @@ if (! function_exists('runmybusiness_do_update_content')) {
             include($hooks_path);
 
             rmb_post_sync_hook();
+        }
+
+        $runmybusiness_rates_url = isset($runmybusiness_options['runmybusiness_rates_url']) ? $runmybusiness_options['runmybusiness_rates_url'] : '';
+        if ($runmybusiness_rates_url) {
+            require_once plugin_dir_path(__FILE__) . '../rates/update-rates.php';
         }
     }
 }
