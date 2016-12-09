@@ -1,9 +1,9 @@
 === RunMyBusiness ===
 Contributors: (runmybusiness)
-Stable tag: 1.0.49
+Stable tag: 1.0.50
 Tags: realestate, properties, listings, runmybusiness
 Requires at least: 3.0.1
-Tested up to: 4.6
+Tested up to: 4.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
