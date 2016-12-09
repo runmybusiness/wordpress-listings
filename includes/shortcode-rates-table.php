@@ -7,7 +7,7 @@ add_shortcode('rmb-rates-table', 'rmb_rates_table_handler');
  */
 function rmb_rates_table_handler($attr = [])
 {
-    rmb_rates_show_table($attr);
+    return rmb_rates_show_table($attr);
 }
 
 /**
@@ -24,14 +24,15 @@ function rmb_rates_show_table($attr = [])
                     <div class="rmb-date">
                         ' . date('F j, Y') . '
                     </div>
-                    <div class="rmb-updated">Last Updated: August 10, 2016 - 10:30 EDT</div>
+                    <div class="rmb-updated">Last Updated: ' . date('F j, Y - H:m', $rates['timestamp']) . ' UTC</div>
                 </div>
                 <div class="rmb-rate-block">
                 ';
-    foreach ($rates as $row):
-                    $class = ($row['pct'][0] == '-') ? 'rmb-neg' : 'rmb-pos';
 
-    $table += '
+    foreach ($rates['rates'] as $row):
+        $class = ($row['pct'][0] == '-') ? 'rmb-neg' : 'rmb-pos';
+
+        $table = $table . '
                     <div class="rmb-rate">
                         <div class="rmb-rate-name">
                             ' . $row['title'] . '
@@ -45,7 +46,8 @@ function rmb_rates_show_table($attr = [])
                     </div>';
 
     endforeach;
-    $table += '</div>
+
+    $table = $table . '</div>
             </div>
 <!--        	<div class="rmb-rate-graph">-->
 <!--        		<div class="rmb-graph">-->
@@ -53,5 +55,5 @@ function rmb_rates_show_table($attr = [])
 <!--        	</div>-->
         </div>';
 
-    echo $table;
+    return $table;
 }

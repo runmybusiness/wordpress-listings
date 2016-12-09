@@ -9,10 +9,10 @@ function rmb_signup_form_handler($attr = [])
             echo '<strong>Thanks for signing up! A confirmation email has been sent to your email address.</strong>';
         } else {
             echo '<strong>There was an error processing your request. Please try again...</strong><br><br>';
-            rmb_signup_show_form($attr);
+            return rmb_signup_show_form($attr);
         }
     } else {
-        rmb_signup_show_form($attr);
+        return rmb_signup_show_form($attr);
     }
 }
 
@@ -93,5 +93,5 @@ Company / Organization
 </form>
 HTMLPLUGIN;
 
-    echo $form;
+    return $form;
 }
