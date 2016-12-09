@@ -1,13 +1,19 @@
 <?php
 
-add_shortcode('rmb-rates-table', 'rmb_signup_form_handler');
+add_shortcode('rmb-rates-table', 'rmb_rates_table_handler');
 
-function rmb_signup_form_handler($attr = [])
+/**
+ * @param array $attr
+ */
+function rmb_rates_table_handler($attr = [])
 {
-    rmb_signup_show_form($attr);
+    rmb_rates_show_table($attr);
 }
 
-function rmb_signup_show_form($attr = [])
+/**
+ * @param array $attr
+ */
+function rmb_rates_show_table($attr = [])
 {
     $rates = @json_decode(file_get_contents(plugin_dir_path(__FILE__) . '../rates/rates-cache.json'), true);
 
