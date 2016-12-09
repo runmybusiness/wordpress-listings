@@ -22,10 +22,10 @@ function rmb_signup_show_form($attr = [])
                 </div>
                 <div class="rmb-rate-block">
                 ';
-                    foreach($rates as $row):
+    foreach ($rates as $row):
                     $class = ($row['pct'][0] == '-') ? 'rmb-neg' : 'rmb-pos';
 
-                $table += '
+    $table += '
                     <div class="rmb-rate">
                         <div class="rmb-rate-name">
                             ' . $row['title'] . '
@@ -38,8 +38,8 @@ function rmb_signup_show_form($attr = [])
                         </div>
                     </div>';
 
-                    endforeach;
-                $table += '</div>
+    endforeach;
+    $table += '</div>
             </div>
 <!--        	<div class="rmb-rate-graph">-->
 <!--        		<div class="rmb-graph">-->
