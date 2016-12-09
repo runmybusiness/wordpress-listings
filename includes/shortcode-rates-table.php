@@ -32,7 +32,7 @@ function rmb_rates_show_table($attr = [])
     foreach ($rates['rates'] as $row):
         $class = ($row['pct'][0] == '-') ? 'rmb-neg' : 'rmb-pos';
 
-        $table = $table . '
+    $table = $table . '
                     <div class="rmb-rate">
                         <div class="rmb-rate-name">
                             ' . $row['title'] . '
