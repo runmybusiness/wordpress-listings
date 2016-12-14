@@ -21,6 +21,9 @@ if (! empty($runmybusiness_data->data)) {
             if (! empty($item->recorded_price)) {
                 update_post_meta($post->post_id, 'recorded_price', $item->recorded_price->raw);
             }
+            if (! empty($item->recorded_date)) {
+                update_post_meta($post->post_id, 'recorded_date', date('Y-m-d', strtotime($item->recorded_date->date)));
+            }
             if (! empty($item->contract_price)) {
                 update_post_meta($post->post_id, 'contract_price', $item->contract_price->raw);
             }
@@ -40,6 +43,10 @@ if (! empty($runmybusiness_data->data)) {
 
             if (! empty($item->recorded_price)) {
                 add_post_meta($post_id, 'recorded_price', $item->recorded_price->raw);
+            }
+
+            if (! empty($item->recorded_date)) {
+                add_post_meta($post_id, 'recorded_date', date('Y-m-d', strtotime($item->recorded_date->date)));
             }
 
             if (! empty($item->contract_price)) {
