@@ -30,12 +30,12 @@ HTMLBLOCK;
         $rmb_post_custom = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
 
         $id = array_get($rmb_post_custom, 'id');
-        $title = the_title();
+        $title = array_get($rmb_post_custom, 'property.name');
         $location = implode(', ', [
                 array_get($rmb_post_custom, 'property.address.geolookup.city'),
                 array_get($rmb_post_custom, 'property.address.geolookup.province.short_name'),
             ]);
-        $recorded_date = date('M j, Y', strtotime(array_get($rmb_post_custom, 'recorded_date', '')));
+        $recorded_date = date('M j, Y', strtotime(array_get($rmb_post_custom, 'recorded_date.date', '')));
         $recorded_price = array_get($rmb_post_custom, 'recorded_price.formatted');
 
         $table .= <<<HTMLBLOCK
