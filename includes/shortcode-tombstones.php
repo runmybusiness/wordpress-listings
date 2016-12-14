@@ -14,7 +14,6 @@ function rmb_tombstones_list_handler($attr = [])
  */
 function rmb_tombstones_show_list($attr = [])
 {
-
     $table = <<<HTMLBLOCK
 <div class="rmb-tombstones">
 HTMLBLOCK;
@@ -27,19 +26,19 @@ HTMLBLOCK;
     if ($query->have_posts()) {
         // Start the Loop.
         while ($query->have_posts()) : $query->the_post();
-            global $post;
-            $rmb_post_custom = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
+        global $post;
+        $rmb_post_custom = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
 
-            $id = array_get($rmb_post_custom, 'id');
-            $title = the_title();
-            $location = implode(', ', [
+        $id = array_get($rmb_post_custom, 'id');
+        $title = the_title();
+        $location = implode(', ', [
                 array_get($rmb_post_custom, 'property.address.geolookup.city'),
                 array_get($rmb_post_custom, 'property.address.geolookup.province.short_name'),
             ]);
-            $recorded_date = date('M j, Y', strtotime(array_get($rmb_post_custom, 'recorded_date', '')));
-            $recorded_price = array_get($rmb_post_custom, 'recorded_price.formatted');
+        $recorded_date = date('M j, Y', strtotime(array_get($rmb_post_custom, 'recorded_date', '')));
+        $recorded_price = array_get($rmb_post_custom, 'recorded_price.formatted');
 
-            $table .= <<<HTMLBLOCK
+        $table .= <<<HTMLBLOCK
 <div class="rmb-tombstone-block" data-rmb-id="tombstone-{$id}">
     <div class="rmb-tombstone-title">
         {$title}
