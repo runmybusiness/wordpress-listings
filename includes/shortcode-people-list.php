@@ -30,16 +30,16 @@ HTMLBLOCK;
     if ($query->have_posts()) {
         // Start the Loop.
         while ($query->have_posts()) : $query->the_post();
-            global $post;
-            $rmb_post_custom = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
+        global $post;
+        $rmb_post_custom = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
 
-            $id = array_get($rmb_post_custom, 'id');
-            $name = array_get($rmb_post_custom, 'name.full');
-            $title = array_get($rmb_post_custom, 'title');
-            $email = array_get($rmb_post_custom, 'email');
-            $img = array_get($rmb_post_custom, 'photo.sizes.600_sq');
+        $id = array_get($rmb_post_custom, 'id');
+        $name = array_get($rmb_post_custom, 'name.full');
+        $title = array_get($rmb_post_custom, 'title');
+        $email = array_get($rmb_post_custom, 'email');
+        $img = array_get($rmb_post_custom, 'photo.sizes.600_sq');
 
-            $table .= <<<HTMLBLOCK
+        $table .= <<<HTMLBLOCK
 <div class="rmb-person-block" data-rmb-id="person-{$id}">
     <div class="rmb-person-image">
         <img src="{$img}">
