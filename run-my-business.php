@@ -3,7 +3,7 @@
 /*
 Plugin Name: RunMyBusiness
 Plugin URI: https://wordpress.org/plugins/runmybusiness-listings/
-Version: 1.0.57
+Version: 1.0.58
 Description: This plugin imports data from RunMyBusiness.
 */
 
