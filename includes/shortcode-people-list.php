@@ -20,11 +20,9 @@ function rmb_people_show_list($attr = [])
 HTMLBLOCK;
 
     $query = new WP_Query([
-        'post_type'      => 'rmb-comparable',
+        'post_type'      => 'rmb-person',
         'posts_per_page' => array_get($attr, 'limit', -1),
-        'meta_key'       => 'recorded_date',
-        'orderby'        => 'meta_value',
-        'order'          => 'DESC',
+        'orderby'        => 'title',
     ]);
 
     if ($query->have_posts()) {
