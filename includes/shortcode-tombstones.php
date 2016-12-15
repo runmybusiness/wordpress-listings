@@ -36,7 +36,7 @@ HTMLBLOCK;
         $id = array_get($rmb_post_custom, 'id');
         $title = array_get($rmb_post_custom, 'property.name');
         $img = array_get($rmb_post_custom, 'property.primaryPhoto.sizes.600_sq');
-        $img_is_placeholder = array_get($rmb_post_custom, 'property.primaryPhoto.placeholder', false);
+        $img_is_placeholder = array_get($rmb_post_custom, 'property.primaryPhoto.placeholder', false)  ? ' placeholder' : '';
         $location = implode(', ', [
                 array_get($rmb_post_custom, 'property.address.geolookup.city'),
                 array_get($rmb_post_custom, 'property.address.geolookup.province.short_name'),
@@ -46,7 +46,7 @@ HTMLBLOCK;
 
         $table .= <<<HTMLBLOCK
 <div class="rmb-tombstone-block" data-rmb-id="tombstone-{$id}">
-    <div class="rmb-tombstone-image{($img_is_placeholder ? ' placeholder' : '')}">
+    <div class="rmb-tombstone-image{$img_is_placeholder}">
         <img src="{$img}">
     </div>
     <div class="rmb-tombstone-title">

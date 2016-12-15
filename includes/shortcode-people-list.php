@@ -37,13 +37,13 @@ HTMLBLOCK;
         $title = array_get($rmb_post_custom, 'title');
         $email = array_get($rmb_post_custom, 'email');
         $img = array_get($rmb_post_custom, 'photo.sizes.600_sq');
-        $img_is_placeholder = array_get($rmb_post_custom, 'photo.placeholder', false);
+        $img_is_placeholder = array_get($rmb_post_custom, 'photo.placeholder', false) ? ' placeholder' : '';
         $bio = nl2br(array_get($rmb_post_custom, 'bio'));
         $phone = array_get($rmb_post_custom, 'phone_numbers.0');
 
         $table .= <<<HTMLBLOCK
 <div class="rmb-person-block" data-rmb-id="person-{$id}">
-    <div class="rmb-person-image{($img_is_placeholder ? ' placeholder' : '')}">
+    <div class="rmb-person-image{$img_is_placeholder}">
         <img src="{$img}">
     </div>
     <div class="rmb-person-name">
