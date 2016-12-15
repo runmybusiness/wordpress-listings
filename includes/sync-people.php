@@ -2,7 +2,7 @@
 
 $runmybusiness_datastring = file_get_contents($runmybusiness_people_url, false, $context);
 $runmybusiness_data = json_decode($runmybusiness_datastring);
-if (! empty($runmybusiness_data->data)) {
+if (! empty($runmybusiness_data)) {
     $posts_runmybusiness = [];
     $querystr = "SELECT `post_id`, `meta_value` FROM $wpdb->postmeta WHERE `meta_key` = 'runmybusiness_person_id' AND `meta_value` > 0";
     $existing_posts = $wpdb->get_results($querystr, 'ARRAY_A');
@@ -10,7 +10,7 @@ if (! empty($runmybusiness_data->data)) {
         $posts_runmybusiness[$p['post_id']] = $p['meta_value'];
     }
     $runmybusiness_ids = [];
-    foreach ($runmybusiness_data->employees->data as $item) {
+    foreach ($runmybusiness_data->members->data as $item) {
         $runmybusiness_ids[] = $item->id;
         // Check if post already exists and update it
         $querystr = "SELECT `post_id` FROM $wpdb->postmeta WHERE `meta_key` = 'runmybusiness_person_id' AND `meta_value` = '$item->id'";
