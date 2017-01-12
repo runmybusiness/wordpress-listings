@@ -3,7 +3,7 @@
 /*
 Plugin Name: RunMyBusiness
 Plugin URI: https://wordpress.org/plugins/runmybusiness-listings/
-Version: 1.0.63
+Version: 1.0.64
 Description: This plugin imports data from RunMyBusiness.
 */
 
@@ -154,6 +154,7 @@ require_once plugin_dir_path(__FILE__) . 'includes/shortcode-people-list.php';
 require_once plugin_dir_path(__FILE__) . 'includes/shortcode-signup-form.php';
 require_once plugin_dir_path(__FILE__) . 'includes/shortcode-rates-table.php';
 require_once plugin_dir_path(__FILE__) . 'includes/shortcode-tombstones.php';
+require_once plugin_dir_path(__FILE__) . 'includes/shortcode-listings.php';
 
 function rmb_locate_plugin_template($template_names, $load = false, $require_once = true)
 {
