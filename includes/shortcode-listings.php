@@ -65,20 +65,20 @@ function rmb_listings_show_list($attr = [])
     if ($query->have_posts()):
         // Start the Loop.
         while ($query->have_posts()) : $query->the_post();
-            global $post;
-            $rmb_post_custom = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
+    global $post;
+    $rmb_post_custom = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
 
-            $img = array_get($rmb_post_custom, 'property.primaryPhoto.sizes.120_sq', false) ?: '';
+    $img = array_get($rmb_post_custom, 'property.primaryPhoto.sizes.120_sq', false) ?: '';
 
-            $overview = '';
-            foreach (array_get($rmb_post_custom, 'fields.data', []) as $k) {
-                if (isset($k->field->legacy_id) && $k->field->legacy_id == 'overview') {
-                    $overview = $k->value;
-                }
-            }
+    $overview = '';
+    foreach (array_get($rmb_post_custom, 'fields.data', []) as $k) {
+        if (isset($k->field->legacy_id) && $k->field->legacy_id == 'overview') {
+            $overview = $k->value;
+        }
+    }
 
 
-            $table .= '
+    $table .= '
 
         <div style="clear: both;" class="listing-item ' . (array_get($rmb_post_custom, 'featured', false) ? 'listing-item-featured' : '') . ' "
              data-latlon="' . array_get($rmb_post_custom, 'property.address.geolookup.geo.latitude') . '_' . array_get($rmb_post_custom,
