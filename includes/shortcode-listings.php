@@ -66,7 +66,7 @@ function rmb_listings_show_list($attr = [])
         // Start the Loop.
         while ($query->have_posts()) : $query->the_post();
     global $post;
-    $rmb_post_custom = json_decode(base64_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true));
+    $rmb_post_custom = json_decode(base64_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0]), true);
 
     $img = array_get($rmb_post_custom, 'property.primaryPhoto.sizes.120_sq', false) ?: '';
 

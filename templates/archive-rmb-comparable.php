@@ -11,7 +11,7 @@
             // Start the Loop.
             while ($query->have_posts()) : $query->the_post();
                 global $post;
-                $rmb_post_custom = json_decode(base64_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true));
+                $rmb_post_custom = json_decode(base64_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0]), true);
                 ?>
 
                 <div style="clear: both;" class="comparable-item" data-rmb-id="<?php echo array_get($rmb_post_custom, 'id'); ?>">
