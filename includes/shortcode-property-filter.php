@@ -262,7 +262,7 @@ function runmybusiness_shortcode()
                 $post_id = get_the_ID();
                 $str = get_post_meta($post_id, 'runmybusiness_datastring');
                 $datastring = $str[0];
-                $runmybusiness_data = json_decode($datastring);
+                $runmybusiness_data = json_decode(base64_decode($datastring));
                 $img = $runmybusiness_data->property->data->primaryPhoto->data->sizes->{120}; ?>
                 <li>
                     <img src="<?php echo $img; ?>" alt="<?php echo the_title(); ?>"/>

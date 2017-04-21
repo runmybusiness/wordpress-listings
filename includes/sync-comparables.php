@@ -17,7 +17,7 @@ if (! empty($runmybusiness_data->data)) {
         $post = $wpdb->get_row($querystr);
 
         if ($post) {
-            update_post_meta($post->post_id, 'runmybusiness_datastring', str_replace(['\"', '\/'], ['\\\\"', '\\\\/'], json_encode($item)));
+            update_post_meta($post->post_id, 'runmybusiness_datastring', base64_encode(json_encode($item)));
             if (! empty($item->recorded_price)) {
                 update_post_meta($post->post_id, 'recorded_price', $item->recorded_price->raw);
             }
@@ -39,7 +39,7 @@ if (! empty($runmybusiness_data->data)) {
             $post_id = wp_insert_post($new_post);
 
             add_post_meta($post_id, 'runmybusiness_comparable_id ', $item->id);
-            add_post_meta($post_id, 'runmybusiness_datastring', json_encode($item));
+            add_post_meta($post_id, 'runmybusiness_datastring', base64_encode(json_encode($item)));
 
             if (! empty($item->recorded_price)) {
                 add_post_meta($post_id, 'recorded_price', $item->recorded_price->raw);

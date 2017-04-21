@@ -17,8 +17,7 @@ if (! empty($runmybusiness_data)) {
         $post = $wpdb->get_row($querystr);
 
         if ($post) {
-            update_post_meta($post->post_id, 'runmybusiness_datastring',
-                str_replace(['\"', '\/'], ['\\\\"', '\\\\/'], json_encode($item)));
+            update_post_meta($post->post_id, 'runmybusiness_datastring', base64_encode(json_encode($item)));
         } else {
             // Else we create a new one
             $new_post = [
@@ -31,7 +30,7 @@ if (! empty($runmybusiness_data)) {
             $post_id = wp_insert_post($new_post);
 
             add_post_meta($post_id, 'runmybusiness_person_id ', $item->id);
-            add_post_meta($post_id, 'runmybusiness_datastring', json_encode($item));
+            add_post_meta($post_id, 'runmybusiness_datastring', base64_encode(json_encode($item)));
         }
     }
     // Delete the posts that are not present in runmybusiness anymore

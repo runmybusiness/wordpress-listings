@@ -72,14 +72,8 @@ if (! empty($runmybusiness_data->data)) {
         if (! empty($item->status->friendly)) {
             $postMetaFunction($post_id, 'status', $item->status->friendly);
         }
-//        if (! empty($item->overview)) {
-//            $item->overivew = str_replace(["\r\n", "u2019"], ["<br>", "'"], $item->overview);
-//        }
-//        if (! empty($item->salient_points)) {
-//            $item->salient_points = str_replace(["\r\n", "u2019"], ["", "'"], $item->salient_points);
-//        }
 
-        $postMetaFunction($post_id, 'runmybusiness_datastring', json_encode($item));
+        $postMetaFunction($post_id, 'runmybusiness_datastring', bas64_encode(json_encode($item)));
 
         echo "\n Updated/Inserted {$item->name}\n";
     }

@@ -2,7 +2,7 @@
 // Start the loop.
 while (have_posts()) :
     the_post();
-    $runmybusiness_data = json_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true);
+    $runmybusiness_data = json_decode(base64_decode(get_post_meta($post->ID, 'runmybusiness_datastring')[0], true));
     $img = array_get($runmybusiness_data, 'property.primaryPhoto.sizes.250_sq');
     $secondaryImages = [];
 
