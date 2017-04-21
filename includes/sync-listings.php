@@ -73,7 +73,7 @@ if (! empty($runmybusiness_data->data)) {
             $postMetaFunction($post_id, 'status', $item->status->friendly);
         }
 
-        $postMetaFunction($post_id, 'runmybusiness_datastring', bas64_encode(json_encode($item)));
+        $postMetaFunction($post_id, 'runmybusiness_datastring', base64_encode(json_encode($item)));
 
         echo "\n Updated/Inserted {$item->name}\n";
     }
