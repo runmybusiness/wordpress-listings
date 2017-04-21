@@ -79,7 +79,7 @@ if (! empty($runmybusiness_data->data)) {
 //            $item->salient_points = str_replace(["\r\n", "u2019"], ["", "'"], $item->salient_points);
 //        }
 
-        $postMetaFunction($post_id, 'runmybusiness_datastring', json_encode($runmybusiness_data));
+        $postMetaFunction($post_id, 'runmybusiness_datastring', json_encode($item));
 
         echo "\n Updated/Inserted {$item->name}\n";
     }
