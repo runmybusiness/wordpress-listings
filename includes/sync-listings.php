@@ -42,6 +42,9 @@ if (! empty($runmybusiness_data->data)) {
         if (! empty($item->id)) {
             $postMetaFunction($post_id, 'runmybusiness_listing_id', $item->id);
         }
+        if (! empty($item->position)) {
+            $postMetaFunction($post_id, 'position', $item->position);
+        }
         if (! empty($item->name)) {
             $postMetaFunction($post_id, 'listing_name', $item->name);
         }
